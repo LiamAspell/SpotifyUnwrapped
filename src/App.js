@@ -8,24 +8,16 @@ function App() {
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
     const [token, setToken] = useState("")
-    //const [searchKey, setSearchKey] = useState("")
     const [artists, setArtists] = useState([])
-
-    // const getToken = () => {
-    //     let urlParams = new URLSearchParams(window.location.hash.replace("#","?"));
-    //     let token = urlParams.get('access_token');
-    // }
-
+    const [mostPlayed, setMostPlayed] = useState([])
+    const dummyToken = "BQDQ3HSFGZBLfNMC56_xwJNn_ioPLcUk_rreWe6Riiod-Nhv7m_j5o84LUg2sa5V_ICAZG4yDnJ94xpVJ83OD2itNAj7MjGQQnrWmjALWy7xrvHnltmN6y4MZWME21PaoaKXMBPBZQwK84KRtKwlNcm-29A5BJBlirP3wmpPMsCXpgTofk6GqlK9"
+    
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
 
-        // getToken()
-
-
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
             window.location.hash = ""
             window.localStorage.setItem("token", token)
         }
@@ -41,33 +33,42 @@ function App() {
 
     const searchArtists = async (e) => {
         e.preventDefault()
-        const {data} = await axios.get("https://api.spotify.com/v1/search", {
+        const {data} = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${dummyToken}`
             },
             params: {
-                q: "kendrick lamar",
-                type: "artist",
-                limit: 1
+                // q: "Elvis",
+                // type: "artist",
+                // limit: 10
             }
         })
 
-        setArtists(data.artists.items)
+        const name = data.items[1].name;
+
+        for(let i = 0; i < 30; i++){
+            console.log(data.items[i].name)
+    
+        }
+
+        console.log(data.items)
+        setArtists(data.items)
     }
 
+
+    //Render Artists From Search Query 
     const renderArtists = () => {
         return artists.map(artist => (
             <div key={artist.id}>
-                {artist.images.length ? <img width={"50%"} src={artist.images[0].url} alt=""/> : <div>No Image</div>}<br></br>
-                {artist.name}<br></br>
-                {artist.popularity}<br></br>
-                {artist.followers.total}
+                {artist.name}
+                {/* //{artist.href} */}
                 
-                
+                <form action={artist.external_urls.spotify}>
+                    <input type="submit" value="Go to Spotify" />
+                </form>
             </div>
         ))
     }
-
     return (
         <div className="App">
             <header className="App-header">
@@ -79,13 +80,14 @@ function App() {
 
                 {token ?
                     <form onSubmit={searchArtists}>
-                        {/*<input type="text" onChange={e => setSearchKey(e.target.value)}/>*/}
                         <button type={"submit"}>Search</button>
+
                     </form>
 
                     : <h2>Please login</h2>
                 }
 
+      
                 {renderArtists()}
 
             </header>
