@@ -11,7 +11,7 @@ function App() {
     const RESPONSE_TYPE = "token"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const [mostPlayed, setMostPlayed] = useState([])
+    //const [mostPlayed, setMostPlayed] = useState([])
     const dummyToken = "BQAQCIoUeMIFcabdWdp1RIVnJnKGEJO0ofKwS0QsVIXAQhX0fvCIBMfJLr6wA84YMEY9wLTvPfnrezOcJrcoTAi_jBdTHKCOR4kG2dWEIPWTYIrdiRFQi7q8oO5NCrB1gar8KnDevG0kMn2zdhQFb1pkAA6QWrdYt10HK0OqoGMIZlP_nROLwM9B"
     
     useEffect(() => {
@@ -38,9 +38,7 @@ function App() {
         />
     );
 
-    const refreshPage = ()=>{
-        window.location.reload();
-     }
+   
 
     const logout = () => {
         setToken("")
@@ -61,7 +59,7 @@ function App() {
             }
         })
 
-        const name = data.items[1].name;
+        //const name = data.items[1].name;
 
         for(let i = 0; i < 30; i++){
             console.log(data.items[i].name)
@@ -79,7 +77,7 @@ function App() {
             <div key={artist.id}>
                 <ColoredLine color="black" />
                 {artist.name}<br />
-                <img width={"30%"} src={artist.images[0].url}/>
+                <img width={"400px"} src={artist.images[0].url} alt=""/>
                 
                 {/* //{artist.href} */}
                 
