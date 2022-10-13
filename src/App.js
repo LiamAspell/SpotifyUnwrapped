@@ -9,10 +9,10 @@ function App() {
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
+    const SCOPE = "user-top-read"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
     //const [mostPlayed, setMostPlayed] = useState([])
-    const dummyToken = "BQAQCIoUeMIFcabdWdp1RIVnJnKGEJO0ofKwS0QsVIXAQhX0fvCIBMfJLr6wA84YMEY9wLTvPfnrezOcJrcoTAi_jBdTHKCOR4kG2dWEIPWTYIrdiRFQi7q8oO5NCrB1gar8KnDevG0kMn2zdhQFb1pkAA6QWrdYt10HK0OqoGMIZlP_nROLwM9B"
     
     useEffect(() => {
         const hash = window.location.hash
@@ -50,16 +50,12 @@ function App() {
         e.preventDefault()
         const {data} = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
-                Authorization: `Bearer ${dummyToken}`
+                Authorization: `Bearer ${token}`
             },
             params: {
-                // q: "Elvis",
-                // type: "artist",
-                // limit: 10
+              
             }
         })
-
-        //const name = data.items[1].name;
 
         for(let i = 0; i < 30; i++){
             console.log(data.items[i].name)
@@ -70,23 +66,15 @@ function App() {
         setArtists(data.items)
     }
 
-
-    //Render Artists From Search Query 
     const renderArtists = () => {
         return artists.map(artist => (
             <div key={artist.id}>
                 <ColoredLine color="black" />
                 {artist.name}<br />
                 <img width={"400px"} src={artist.images[0].url} alt=""/>
-                
-                {/* //{artist.href} */}
-                
                 <form action={artist.external_urls.spotify}>
                     <input type="submit" value="Go to Spotify" />
                 </form>
-
-                
-    
             </div>
         ))
     }
@@ -97,7 +85,7 @@ function App() {
                 <img src={SpotifyLogo} width="30%"/>
                 <h1>Spotify API caller</h1>
                 {!token ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Click to Authenticate With Spotify</a>
+                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
                     : <button onClick={logout}>Logout</button>
                       }
 
