@@ -1,7 +1,8 @@
 import {useEffect, useState} from "react";
 import './App.css';
 import axios from 'axios';
-import SpotifyLogo from './resources/Spotify.jpg'
+import SpotifyLogo from './resources/Spotify.jpg';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 
 function App() {
@@ -73,7 +74,7 @@ function App() {
                 {artist.name}<br />
                 <img width={"400px"} src={artist.images[0].url} alt=""/>
                 <form action={artist.external_urls.spotify}>
-                    <input type="submit" value="Go to Spotify" />
+                    <Button variant="secondary" type="submit">Go to Spotify</Button>
                 </form>
             </div>
         ))
@@ -81,19 +82,16 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-
-                <img src={SpotifyLogo} width="30%"/>
                 <h1>Spotify API caller</h1>
-                {!token ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
-                    : <button onClick={logout}>Logout</button>
-                      }
+                <img src={SpotifyLogo} width="30%"/>
+                
+                
 
                 {token ?
                     <form onSubmit={searchArtists}>
-                        <Button variant="primary" type={"submit"}>Search</Button>
-                        
-                    </form>
+                    <Button variant="success" type={"submit"}>Search</Button>
+                    
+                </form>
 
                     : <div style = {{width:"30%"}}>
                         <h2>How does this work?</h2>
@@ -101,6 +99,12 @@ function App() {
                     </div>
                     
                 }
+                
+
+                {!token ?
+                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
+                    : <Button variant="danger" onClick={logout}>Logout</Button>
+                      }
                
                 {renderArtists()}
                
