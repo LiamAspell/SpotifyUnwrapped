@@ -70,7 +70,7 @@ function App() {
     const renderArtists = () => {
         return artists.map(artist => (
             <div key={artist.id}>
-                <ColoredLine color="black" />
+                <ColoredLine color='black' />
                 {artist.name}<br />
                 <img width={"400px"} src={artist.images[0].url} alt=""/>
                 <form action={artist.external_urls.spotify}>
@@ -82,7 +82,7 @@ function App() {
     return (
         <div className="App">
             <header className="App-header">
-                <h1>Spotify API caller</h1>
+                <h1>Find your favourite artists</h1>
                 <img src={SpotifyLogo} width="30%"/>
                 
                 
