@@ -34,7 +34,7 @@ function App() {
             style={{
                 color: color,
                 backgroundColor: color,
-                height: 5
+                height: 1
             }}
         />
     );
@@ -89,7 +89,7 @@ function App() {
 
                 {token ?
                     <form onSubmit={searchArtists}>
-                    <Button variant="success" type={"submit"}>Search</Button>
+                    <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
                     
                 </form>
 
@@ -100,6 +100,7 @@ function App() {
                     
                 }
                 
+                <br></br>
 
                 {!token ?
                     <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
