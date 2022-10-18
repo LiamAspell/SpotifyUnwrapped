@@ -4,11 +4,10 @@ import axios from 'axios';
 import SpotifyLogo from './resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import Modal from './Components/Modal/Modal';
+import ArtistModal from "./ArtistModal";
+
 
 function App() {
-
-    
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
@@ -85,24 +84,24 @@ function App() {
         ))
     }
     return (
-        <>
         
         <div className="App">
             <header className="App-header">
-                
-                <Modal />
+                <ArtistModal />
                 <h1>Find your favourite artists</h1>
                 <img src={SpotifyLogo} width="30%"/>
                 
                 
 
                 {token ?
+                   
                     <form onSubmit={searchArtists}>
                     <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
                         <div style={{
                                 width: "60%",
                                 margin: "auto"
                         }}>
+                       
                         <ColoredLine color='black'/>
                         <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
                         <ColoredLine color='black' />
@@ -120,6 +119,7 @@ function App() {
                
                 
                 {!token ?
+                    
                     <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
                     : <Button variant="danger" onClick={logout}>Click to Logout</Button>
                       }
@@ -129,7 +129,7 @@ function App() {
 
             </header>
         </div>
-        </>
+        
     );
 }
 
