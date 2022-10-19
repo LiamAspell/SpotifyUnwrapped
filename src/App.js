@@ -59,13 +59,14 @@ function App() {
             }
         })
 
-        for(let i = 0; i < 30; i++){
-            console.log(data.items[i].name)
+        // for(let i = 0; i < 30; i++){
+        //     console.log(data.items[i].name)
     
-        }
+        // }
 
         console.log(data.items)
         setArtists(data.items)
+        
     }
 
     const renderArtists = () => {
@@ -77,7 +78,9 @@ function App() {
                 <img width={"400px"} src={artist.images[0].url} alt="123" />
                 <form action={artist.external_urls.spotify}>
                     <Button variant="secondary" type="submit">Go to Player</Button>
-
+                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]}/>
+                  
+                    
                 </form>
                 
             </div>
@@ -87,7 +90,7 @@ function App() {
         
         <div className="App">
             <header className="App-header">
-                <ArtistModal />
+                
                 <h1>Find your favourite artists</h1>
                 <img src={SpotifyLogo} width="30%"/>
                 
