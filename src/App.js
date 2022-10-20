@@ -49,21 +49,21 @@ function App() {
     }
      
     //Going to Player Page 
-    const getCurrentlyPlaying = async (e) => {
-        e.preventDefault()
-        const { currentPlayingData } = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
-            headers: {
-                Authorization: `Bearer ${dummyToken}`
-            },
-            params: {
+    // const getCurrentlyPlaying = async (e) => {
+    //     e.preventDefault()
+    //     const { currentPlayingData } = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
+    //         headers: {
+    //             Authorization: `Bearer ${dummyToken}`
+    //         },
+    //         params: {
 
-            }
+    //         }
 
-        })
+    //     })
 
-        console.log("1234")
-        console.log(currentPlayingData)
-    }
+    //     console.log("1234")
+    //     console.log(currentPlayingData)
+    // }
 
 
     const searchArtists = async (e) => {
@@ -81,16 +81,16 @@ function App() {
     }
 
     //Going to Player Page 
-    const renderCurrentlyPlaying = () => {
+    // const renderCurrentlyPlaying = () => {
         
-        return  (
-            <div>
-                <p>The song currently playing is : </p>
-            </div>
+    //     return  (
+    //         <div>
+    //             <p>The song currently playing is : </p>
+    //         </div>
 
             
-        )
-    }
+    //     )
+    // }
 
     const renderArtists = () => {
         return artists.map(artist => (
@@ -115,12 +115,12 @@ function App() {
             <Navbar />
             <header className="App-header">
                 
-                <h1>Find your favourite artists</h1>
+                {/*<h1>Find your favourite artists</h1>*/}
                 <img src={SpotifyLogo} width="30%"/>
 
                 {token ?    
                     <form onSubmit={searchArtists}>
-                        <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
+                        <Button variant="success" type={"submit"}  style={{color:'black'}}>Find Your Most Played Artists</Button>
                         <div style={{
                             width: "60%",
                             margin: "auto"
@@ -147,7 +147,7 @@ function App() {
                 {!token ?
                     
                     <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
-                    : <Button variant="danger" onClick={logout}>Click to Logout</Button>
+                    : <Button variant="danger" onClick={logout}  style={{color:'black'}}>Click to Logout</Button>
                       }
                
                 {renderArtists()}
