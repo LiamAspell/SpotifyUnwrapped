@@ -15,7 +15,8 @@ function App() {
     const SCOPE = "user-top-read"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-   
+    const dummyToken = "BQBy4MQ33Z_O8K-LbcToTnGDZ6jgdUT-mxYGBfnxSZ-yZQmspbjE28UyfT3sPlymUM-WXpsmncLN7lyf8njS61png5hRw_x1jntTOxydllBadOXFTa1eoy5ARRIyH6I3UbJ6Z4qFfMfti0ZQMj_4NIPlgRsy9_3cxr1OK6DPCFCwHmFB_a9QCA"
+
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
@@ -48,25 +49,46 @@ function App() {
         window.location.reload();
     }
 
+    const getCurrentlyPlaying = async (e) => {
+        e.preventDefault()
+        const { currentPlayingData } = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
+            headers: {
+                Authorization: `Bearer ${dummyToken}`
+            },
+            params: {
+
+            }
+
+        })
+
+        console.log("1234")
+        console.log({currentPlayingData})
+    }
+
+
     const searchArtists = async (e) => {
         e.preventDefault()
-        const {data} = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
+        const { data } = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
                 Authorization: `Bearer ${token}`
             },
             params: {
-              
             }
         })
-
-        // for(let i = 0; i < 30; i++){
-        //     console.log(data.items[i].name)
-    
-        // }
-
         console.log(data.items)
         setArtists(data.items)
+
+    }
+
+    const renderCurrentlyPlaying = () => {
         
+        return  (
+            <div>
+                <p>The song currently playing is : </p>
+            </div>
+
+            
+        )
     }
 
     const renderArtists = () => {
@@ -97,14 +119,14 @@ function App() {
                 
 
                 {token ?
-                   
+                    
                     <form onSubmit={searchArtists}>
                     <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
                         <div style={{
                                 width: "60%",
                                 margin: "auto"
                         }}>
-                       
+                        
                         <ColoredLine color='black'/>
                         <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
                         <ColoredLine color='black' />
@@ -128,6 +150,8 @@ function App() {
                       }
                
                 {renderArtists()}
+                {renderCurrentlyPlaying ()}
+                
                
 
             </header>
