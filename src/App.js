@@ -4,9 +4,8 @@ import axios from 'axios';
 import SpotifyLogo from './resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import ArtistModal from "./ArtistModal";
-
-
+import ArtistModal from "./components/ArtistModal";
+import Navbar from "./components/ColorSchemesExample";
 function App() {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000"
@@ -15,7 +14,7 @@ function App() {
     const SCOPE = "user-top-read"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const dummyToken = "BQChzadFbItA6T-8C25AT9xqVQEpR9RL3rICTFE4ddPTVjJAydA1TqCbXEFZhIWsrylqGaWYcYou5AYBYb21ZXE5x1uZRpFS_fVRmU3H_13ORsO7XQ4MTLd3Fn8n4slAwVez0KtrY-bzNF2kCjNxyUBJoYHcS4xWHg76uv9kp4xBm8phl8I05w"
+    const dummyToken = "BQAwhmKpwXnHmE8bstQ3iR1uEWwarVLowMxr9TzSC1kaDwv5dQDbbpoNtIkqFL6VioTHSFlhb9DkbiHJgLmcosqM8TUsajY7ofgc7eAKqzszwj71HtcDHQYKp-AWGJ7UmVn2hxhuyHAxRLaLfIv22xDDV5CCw2IVQMJmWAIAXAHCWw0kKFeVOQ"
 
     useEffect(() => {
         const hash = window.location.hash
@@ -48,7 +47,8 @@ function App() {
         window.localStorage.removeItem("token")
         window.location.reload();
     }
-
+     
+    //Going to Player Page 
     const getCurrentlyPlaying = async (e) => {
         e.preventDefault()
         const { currentPlayingData } = await axios.get("https://api.spotify.com/v1/me/player/currently-playing", {
@@ -62,7 +62,7 @@ function App() {
         })
 
         console.log("1234")
-        console.log({currentPlayingData})
+        console.log(currentPlayingData)
     }
 
 
@@ -80,6 +80,7 @@ function App() {
 
     }
 
+    //Going to Player Page 
     const renderCurrentlyPlaying = () => {
         
         return  (
@@ -111,30 +112,29 @@ function App() {
     return (
         
         <div className="App">
+            <Navbar />
             <header className="App-header">
                 
                 <h1>Find your favourite artists</h1>
                 <img src={SpotifyLogo} width="30%"/>
-                
-                
 
-                {token ?
-                   
+                {token ?    
                     <form onSubmit={searchArtists}>
-                    <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
+                        <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
                         <div style={{
-                                width: "60%",
-                                margin: "auto"
+                            width: "60%",
+                            margin: "auto"
                         }}>
-                        
-                        <ColoredLine color='black'/>
-                        <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
-                        <ColoredLine color='black' />
+
+                            <ColoredLine color='black' />
+                            <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
+                            <ColoredLine color='black' />
                         </div>
 
-                        <button onClick={getCurrentlyPlaying} > Get Current Playing Info</button>
-                </form>
+                        {/* <button onClick={getCurrentlyPlaying}> Get Current Playing Info</button>  Going to New page*/}
 
+                    </form>
+                
 
                     : <div style = {{width:"30%"}}>
                         <h2>How does this work?</h2>
@@ -144,8 +144,6 @@ function App() {
                     
                 }
                 
-               
-                
                 {!token ?
                     
                     <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
@@ -153,7 +151,7 @@ function App() {
                       }
                
                 {renderArtists()}
-                {renderCurrentlyPlaying()}
+                {/* {renderCurrentlyPlaying()} */}
                 
                
 

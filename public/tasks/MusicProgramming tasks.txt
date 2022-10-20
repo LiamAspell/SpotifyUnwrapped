@@ -4,3 +4,4 @@ ToDo
 2.Build out the modal --> Reference Guide to building a modal : https://www.youtube.com/watch?v=9DwGahSqcEc&ab_channel=TheWebSchool.
     -> Modal Functionality implemented from React Bootstrap. ToDo : Work on the modal further
 3.Build out the player
+4.Build out Navbar
