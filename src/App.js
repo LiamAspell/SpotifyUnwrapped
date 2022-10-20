@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "./components/ArtistModal";
 import Navbar from "./components/ColorSchemesExample";
+
 function App() {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000"
@@ -147,7 +148,7 @@ function App() {
                 {!token ?
                     
                     <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
-                    : <Button variant="danger" onClick={logout}  style={{color:'black'}}>Click to Logout</Button>
+                    : <Button variant="danger" onClick={logout}  style={{color:'white'}}>Click to Logout</Button>
                       }
                
                 {renderArtists()}
