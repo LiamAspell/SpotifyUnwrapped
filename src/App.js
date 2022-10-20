@@ -15,7 +15,7 @@ function App() {
     const SCOPE = "user-top-read"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const dummyToken = "BQBy4MQ33Z_O8K-LbcToTnGDZ6jgdUT-mxYGBfnxSZ-yZQmspbjE28UyfT3sPlymUM-WXpsmncLN7lyf8njS61png5hRw_x1jntTOxydllBadOXFTa1eoy5ARRIyH6I3UbJ6Z4qFfMfti0ZQMj_4NIPlgRsy9_3cxr1OK6DPCFCwHmFB_a9QCA"
+    const dummyToken = "BQChzadFbItA6T-8C25AT9xqVQEpR9RL3rICTFE4ddPTVjJAydA1TqCbXEFZhIWsrylqGaWYcYou5AYBYb21ZXE5x1uZRpFS_fVRmU3H_13ORsO7XQ4MTLd3Fn8n4slAwVez0KtrY-bzNF2kCjNxyUBJoYHcS4xWHg76uv9kp4xBm8phl8I05w"
 
     useEffect(() => {
         const hash = window.location.hash
@@ -119,7 +119,7 @@ function App() {
                 
 
                 {token ?
-                    
+                   
                     <form onSubmit={searchArtists}>
                     <Button variant="success" type={"submit"}>Find Your Most Played Artists</Button>
                         <div style={{
@@ -131,7 +131,10 @@ function App() {
                         <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
                         <ColoredLine color='black' />
                         </div>
+
+                        <button onClick={getCurrentlyPlaying} > Get Current Playing Info</button>
                 </form>
+
 
                     : <div style = {{width:"30%"}}>
                         <h2>How does this work?</h2>
@@ -150,7 +153,7 @@ function App() {
                       }
                
                 {renderArtists()}
-                {renderCurrentlyPlaying ()}
+                {renderCurrentlyPlaying()}
                 
                
 
