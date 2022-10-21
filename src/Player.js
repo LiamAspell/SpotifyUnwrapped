@@ -4,7 +4,9 @@ import React, { Component } from 'react';
 export const Player = () => {
   return(
     <div>
-      <h1> Git</h1>
+      <header className='App-header'>
+     <h1> Player </h1>
+     </header>
     </div>
     
  

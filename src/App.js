@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "./components/ArtistModal";
 import Navbar from "./components/ColorSchemesExample";
+import { Player } from "./Player";
+import { Home } from "./Home"
 
 function App() {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -78,7 +80,7 @@ function App() {
         })
         console.log(data.items)
         setArtists(data.items)
-
+        
     }
 
     //Going to Player Page 
@@ -114,49 +116,7 @@ function App() {
         
         <div className="App">
             <Navbar />
-            <header className="App-header">
-                
-                {/*<h1>Find your favourite artists</h1>*/}
-                <img src={SpotifyLogo} width="30%"/>
-
-                {token ?    
-                    <form onSubmit={searchArtists}>
-                        <Button variant="success" type={"submit"}  style={{color:'black'}}>Find Your Most Played Artists</Button>
-                        <div style={{
-                            width: "60%",
-                            margin: "auto"
-                        }}>
-
-                            <ColoredLine color='black' />
-                            <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
-                            <ColoredLine color='black' />
-                        </div>
-
-                        {/* <button onClick={getCurrentlyPlaying}> Get Current Playing Info</button>  Going to New page*/}
-
-                    </form>
-                
-
-                    : <div style = {{width:"30%"}}>
-                        <h2>How does this work?</h2>
-                        <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists, along with links to play the artists music on Spotify</p>
-                        
-                    </div>
-                    
-                }
-                
-                {!token ?
-                    
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
-                    : <Button variant="danger" onClick={logout}  style={{color:'white'}}>Click to Logout</Button>
-                      }
-               
-                {renderArtists()}
-                {/* {renderCurrentlyPlaying()} */}
-                
-               
-
-            </header>
+            <Home />
         </div>
         
     );
