@@ -19,29 +19,27 @@ import {
 
 function ColorSchemesExample() {
   return (
-
-    <Router>
-      <Navbar bg="dark" variant="dark" >
-        <Container>
-          <Nav className="me-auto"  style={{}}>
-            <Nav.Link as={Link} to="/" style={{color:"rgb(30, 215, 96)"}}>Home</Nav.Link>
-            <Nav.Link as={Link} to='/Player' style={{color:"rgb(30, 215, 96)"}}>Player</Nav.Link>
-            <Nav.Link as={Link} to='/Git' style={{color:"rgb(30, 215, 96)"}}>Git</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
-     
+    <>
+      <Router>
+        <Navbar bg="dark" variant="dark" >
+          <Container>
+            <Nav className="me-auto" style={{}}>
+              <Nav.Link as={Link} to="/" style={{ color: "rgb(30, 215, 96)" }}>Home</Nav.Link>
+              <Nav.Link as={Link} to='/Player' style={{ color: "rgb(30, 215, 96)" }}>Player</Nav.Link>
+              <Nav.Link as={Link} to='/Git' style={{ color: "rgb(30, 215, 96)" }}>Git</Nav.Link>
+            </Nav>
+          </Container>
+        </Navbar>
 
         <div>
-            
-         <Routes>
+          <Routes>
             <Route path="/Home" element={<Home />} />
             <Route path="/Player" element={<Player />} />
-            <Route path="/Git" element={<Git />} /> 
+            <Route path="/Git" element={<Git />} />
           </Routes>
         </div>
       </Router>
-    
+    </>
   );
 }
 
