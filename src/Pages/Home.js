@@ -83,9 +83,10 @@ export const Home = () => {
   }
 
   return(
-          <div>
+          <div className='App'>
+              <Navbar />
            <header className="App-header">
-
+            
            <h1>Find your favourite artists</h1>
                 <img src={SpotifyLogo} width="30%"/>
 

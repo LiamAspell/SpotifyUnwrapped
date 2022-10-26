@@ -5,9 +5,11 @@ import SpotifyLogo from './resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "./components/ArtistModal";
+import Greeting from "./components/Greeting";
 import Navbar from "./components/ColorSchemesExample";
 import { Player } from "./Pages/Player";
-import { Home } from "./Pages/Home"
+import { Home } from "./Pages/Home";
+
 
 function App() {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -113,12 +115,27 @@ function App() {
         ))
     }
     return (
-   
-   
+
+
+
         <div className="App">
-            <Navbar />
-            
+        <Navbar />
+        <div className="App-header">
+            <Greeting />
+            {/* <h1>Music Programming Project</h1>
+            <p>Name = Liam Aspell</p>
+            <p>Student Number = 17300046</p>
+            <Button variant="primary" href="/Home">Take me there!</Button> */}
         </div>
+        </div>
+        // <div className="App">
+        // <div className="App-header">
+
+      
+        // <Navbar />
+        // <Greeting />
+        // </div>
+        // </div>
         
     );
 }
