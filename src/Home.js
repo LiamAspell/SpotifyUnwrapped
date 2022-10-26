@@ -72,11 +72,11 @@ export const Home = () => {
             
             <img width={"400px"} src={artist.images[0].url} alt="123" />
             <form action={artist.external_urls.spotify}>
-                <Button variant="secondary" type="submit">Go to Player</Button>
+                <Button variant="secondary" type="submit">See on Spotify</Button>
                 <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]}/>
-              
-                
             </form>
+
+            <Button variant="dark" href='/player'>Go to Player</Button>
             
         </div>
     ))
