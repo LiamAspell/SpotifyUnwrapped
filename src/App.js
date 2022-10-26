@@ -6,8 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "./components/ArtistModal";
 import Navbar from "./components/ColorSchemesExample";
-import { Player } from "./Player";
-import { Home } from "./Home"
+import { Player } from "./Pages/Player";
+import { Home } from "./Pages/Home"
 
 function App() {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -113,10 +113,11 @@ function App() {
         ))
     }
     return (
-        
+   
+   
         <div className="App">
             <Navbar />
-            <Home />
+            
         </div>
         
     );

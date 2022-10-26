@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {useEffect, useState} from "react";
-import './App.css';
+import '../App.css';
 import axios from 'axios';
-import SpotifyLogo from './resources/Spotify.jpg';
+import SpotifyLogo from '../resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import ArtistModal from "./components/ArtistModal";
-import Navbar from "./components/ColorSchemesExample";
+import ArtistModal from "../components/ArtistModal";
+import Navbar from "../components/ColorSchemesExample";
 
 
 export const Home = () => {
@@ -92,7 +92,7 @@ export const Home = () => {
 
                 {token ?    
                     <form onSubmit={searchArtists}>
-                        <Button variant="success" type={"submit"}  style={{color:'black'}}>Find Your Most Played Artists</Button>
+                        <Button variant="success" type={"submit"}  style={{color:'white'}}>Find Your Most Played Artists</Button>
                         
                         <div style={{
                             width: "60%",

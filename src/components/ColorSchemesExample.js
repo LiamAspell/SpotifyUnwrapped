@@ -2,9 +2,9 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import '../App.css';
-import { Git } from '../Git';
-import { Player } from '../Player';
-import { Home } from '../Home';
+import { Git } from '../Pages/Git';
+import { Player } from '../Pages/Player';
+import { Home } from '../Pages/Home';
 
 import {
   BrowserRouter as Router,
