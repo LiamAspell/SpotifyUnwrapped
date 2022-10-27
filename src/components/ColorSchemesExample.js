@@ -6,6 +6,7 @@ import '../App.css';
 import { Git } from '../Pages/Git';
 import { Player } from '../Pages/Player';
 import { Home } from '../Pages/Home';
+import { Greeting } from '../Pages/HomeGreeting';
 
 import {
   BrowserRouter as Router,

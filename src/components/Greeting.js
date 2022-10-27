@@ -8,12 +8,13 @@ import Button from 'react-bootstrap/Button';
 function Greeting() {
   return (
     <div>
-    <Navbar />
+   
     <div className="App-header">
+        <Navbar />
         <h1>Music Programming Project</h1>
         <p>Name = Liam Aspell</p>
         <p>Student Number = 17300046</p>
-        <Button variant="primary" href="/Home">Take me there!</Button>
+        <Button href="/Home"><a href="/Git">Take me there</a></Button>
     </div>
     </div>
     

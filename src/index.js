@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import Home from './Pages/Home';
+import Player from './Pages/Player';
+import Greeting from './Pages/HomeGreeting';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
