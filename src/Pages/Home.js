@@ -87,7 +87,7 @@ export const Home = () => {
             <Navbar />
             <header className="App-header">
 
-                <h1>Find your favourite artists</h1>
+                <h1>Find Your Favourite Artists / Tracks</h1>
                 <img src={SpotifyLogo} width="30%" />
 
                 {token ?
@@ -100,14 +100,14 @@ export const Home = () => {
                         }}>
 
                             <ColoredLine color='black' />
-                            <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'more info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, lyrics will be displayed, and an audio visualizer is displayed. </p>
+                            <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'More Info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, and lyrics will be displayed. </p>
                             <ColoredLine color='black' />
                         </div>
                     </form>
 
                     : <div style={{ width: "30%" }}>
                         <h2>How does this work?</h2>
-                        <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists, along with links to play the artists music on Spotify</p>
+                        <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
                     </div>
 
                 }
