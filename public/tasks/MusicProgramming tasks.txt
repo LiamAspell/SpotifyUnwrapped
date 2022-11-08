@@ -1,6 +1,7 @@
 ToDo -
 
-1.Check if app.css matches the code in the create-react app, and if not refactor it down to just font. 
-2.Build out the player
-3.Start to build out Navbar
-4.Move individual Pages into 'Pages' folder 
+1.Build new page to pull api information for users most played tracks 
+2.Fix Navbar issue 
+3.Check if app.css matches the code in the create-react app, and if not refactor it down to just font. 
+4.Build out the player
+ 
