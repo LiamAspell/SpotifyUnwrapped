@@ -53,7 +53,7 @@ export const Artists = () => {
         e.preventDefault()
         const { data } = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
-                Authorization: `Bearer ${dummyToken}`
+                Authorization: `Bearer ${token}`
             },
             params: {
             }
