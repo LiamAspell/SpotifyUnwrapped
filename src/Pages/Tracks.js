@@ -17,7 +17,7 @@ export const Tracks = () => {
     const SCOPE = "user-top-read"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const dummyToken = "BQBokzs7H3HhmkTg5x1BFXcRPhOlrsj8Y9bXL9Dckuka5Sssq7Oz3w8vEf-h05my4RYiLb61N6OTgy026IuNkOZ7aTZYe3YzfvvIqCyQ8-gdyctrCcYdmhdsGXdRVl1SHqImFSAO4RdEfrEfJLWfgDDh24mlQFifuEwjfMeYENwc05iyR27rq9D1DypuSqYu4t2unTD1"
+    const dummyToken = "BQDAEyx_JgG-rveNh1GQJtvL7_nvxY2D0PgWI8lCjYGx08lbwKKMDcyUvbGg8TSR_wGKwO_QLd7-5YozKWd_KbAsyFgn5ooeFKCP6YIsIsbASiNFOUlO-QRuFKWFIA7iK7jRs-tDAH21HMfUmfTmfPNR4ljmQUyxm2WHwzTcJm4WNDFQR77DqZip"
 
     useEffect(() => {
         const hash = window.location.hash
@@ -70,10 +70,9 @@ export const Tracks = () => {
                 <ColoredLine color='black' />
                 {artist.name}<br />
 
-                <img width={"400px"} src={artist.images[0].url} alt="123" />
                 <form action={artist.external_urls.spotify}>
                     <Button variant="secondary" type="submit">See on Spotify</Button>
-                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} />
+                    <ArtistModal artistName={artist.name}  />
                 </form>
 
                 <Button variant="dark" href='/player'>Go to Player</Button>

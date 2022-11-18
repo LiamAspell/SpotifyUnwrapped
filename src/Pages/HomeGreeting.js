@@ -15,7 +15,7 @@ export const HomeGreeting = () => {
               <h1>Music Programming Project</h1>
               <p>Name = Liam Aspell</p>
               <p>Student Number = 17300046</p>
-              <Button href="/Home"><a href="/Git">Take me there</a></Button>
+              
           </div>
       </div>
   )

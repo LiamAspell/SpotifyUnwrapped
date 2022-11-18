@@ -1,7 +1,8 @@
 ToDo -
 
-1.Build new page to pull api information for users most played tracks 
-2.Fix Navbar issue 
+1.̶B̶u̶i̶l̶d̶ ̶n̶e̶w̶ ̶p̶a̶g̶e̶ ̶t̶o̶ ̶p̶u̶l̶l̶ ̶a̶p̶i̶ ̶i̶n̶f̶o̶r̶m̶a̶t̶i̶o̶n̶ ̶f̶o̶r̶ ̶u̶s̶e̶r̶s̶ ̶m̶o̶s̶t̶ ̶p̶l̶a̶y̶e̶d̶ ̶t̶r̶a̶c̶k̶s̶ ̶
+2.̶F̶i̶x̶ ̶N̶a̶v̶b̶a̶r̶ ̶i̶s̶s̶u̶e̶ ̶
 3.Check if app.css matches the code in the create-react app, and if not refactor it down to just font. 
 4.Build out the player
- 
+5.Change from dummyToken back to token to restore login functionality -> Revisit spotify authentication videos
+6.Move login functionality to greeting screen
