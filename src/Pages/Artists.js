@@ -11,7 +11,7 @@ import Navbar from "../components/ColorSchemesExample";
 
 export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
-    const REDIRECT_URI = "http://localhost:3000"
+    const REDIRECT_URI = "http://localhost:3000/Artists"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
     const SCOPE = "user-top-read"
@@ -26,10 +26,10 @@ export const Artists = () => {
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
             window.location.hash = ""
-            window.localStorage.setItem("token", dummyToken)
+            window.localStorage.setItem("token", token)
         }
 
-        setToken(dummyToken)
+        setToken(token)
 
     }, [])
 

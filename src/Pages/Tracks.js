@@ -11,7 +11,7 @@ import Navbar from "../components/ColorSchemesExample";
 
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
-    const REDIRECT_URI = "http://localhost:3000"
+    const REDIRECT_URI = "http://localhost:3000/Tracks"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
     const SCOPE = "user-top-read"
@@ -26,10 +26,10 @@ export const Tracks = () => {
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
             window.location.hash = ""
-            window.localStorage.setItem("token", dummyToken)
+            window.localStorage.setItem("token", token)
         }
 
-        setToken(dummyToken)
+        setToken(token)
 
     }, [])
 
@@ -53,7 +53,7 @@ export const Tracks = () => {
         e.preventDefault()
         const { data } = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=10&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
-                Authorization: `Bearer ${dummyToken}`
+                Authorization: `Bearer ${token}`
             },
             params: {
             }
