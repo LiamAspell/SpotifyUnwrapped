@@ -6,6 +6,7 @@ import SpotifyLogo from '../resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
+import TrackModal from "../components/TrackModal";
 import Navbar from "../components/ColorSchemesExample";
 
 
@@ -18,6 +19,7 @@ export const Tracks = () => {
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
     const dummyToken = "BQDAEyx_JgG-rveNh1GQJtvL7_nvxY2D0PgWI8lCjYGx08lbwKKMDcyUvbGg8TSR_wGKwO_QLd7-5YozKWd_KbAsyFgn5ooeFKCP6YIsIsbASiNFOUlO-QRuFKWFIA7iK7jRs-tDAH21HMfUmfTmfPNR4ljmQUyxm2WHwzTcJm4WNDFQR77DqZip"
+    
 
     useEffect(() => {
         const hash = window.location.hash
@@ -60,21 +62,22 @@ export const Tracks = () => {
         })
         console.log(data.items)
         setArtists(data.items)
-
+     
     }
 
 
     const renderArtists = () => {
-        return artists.map(artist => (
-            <div key={artist.id}>
+        return artists.map(track => (
+            <div key={track.id}>
                 <ColoredLine color='black' />
-                {artist.name}<br />
-
-                <form action={artist.external_urls.spotify}>
+                {track.name}<br />
+                <img width={"400px"} src={track.album.images[0].url} alt="123" />
+                <form action={track.external_urls.spotify}>
                     <Button variant="secondary" type="submit">See on Spotify</Button>
-                    <ArtistModal artistName={artist.name}  />
+                    <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
+                    
                 </form>
-
+                
                 <Button variant="dark" href='/player'>Go to Player</Button>
 
             </div>
