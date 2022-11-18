@@ -9,7 +9,7 @@ import ArtistModal from "../components/ArtistModal";
 import Navbar from "../components/ColorSchemesExample";
 
 
-export const Home = () => {
+export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
@@ -17,7 +17,7 @@ export const Home = () => {
     const SCOPE = "user-top-read"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const dummyToken = "BQAwhmKpwXnHmE8bstQ3iR1uEWwarVLowMxr9TzSC1kaDwv5dQDbbpoNtIkqFL6VioTHSFlhb9DkbiHJgLmcosqM8TUsajY7ofgc7eAKqzszwj71HtcDHQYKp-AWGJ7UmVn2hxhuyHAxRLaLfIv22xDDV5CCw2IVQMJmWAIAXAHCWw0kKFeVOQ"
+    const dummyToken = "BQBokzs7H3HhmkTg5x1BFXcRPhOlrsj8Y9bXL9Dckuka5Sssq7Oz3w8vEf-h05my4RYiLb61N6OTgy026IuNkOZ7aTZYe3YzfvvIqCyQ8-gdyctrCcYdmhdsGXdRVl1SHqImFSAO4RdEfrEfJLWfgDDh24mlQFifuEwjfMeYENwc05iyR27rq9D1DypuSqYu4t2unTD1"
 
     useEffect(() => {
         const hash = window.location.hash
@@ -26,10 +26,10 @@ export const Home = () => {
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
             window.location.hash = ""
-            window.localStorage.setItem("token", token)
+            window.localStorage.setItem("token", dummyToken)
         }
 
-        setToken(token)
+        setToken(dummyToken)
 
     }, [])
 
@@ -53,7 +53,7 @@ export const Home = () => {
         e.preventDefault()
         const { data } = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
-                Authorization: `Bearer ${token}`
+                Authorization: `Bearer ${dummyToken}`
             },
             params: {
             }
@@ -84,10 +84,10 @@ export const Home = () => {
 
     return (
         <div className='App'>
-            <Navbar />
+            {/* <Navbar /> */}
             <header className="App-header">
 
-                <h1>Find Your Favourite Artists / Tracks</h1>
+                <h1>Find Your Favourite Artists</h1>
                 <img src={SpotifyLogo} width="30%" />
 
                 {token ?
@@ -126,4 +126,4 @@ export const Home = () => {
 }
 
 
-export default Home
+export default Artists

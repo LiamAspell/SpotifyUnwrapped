@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Home from './Pages/Home';
+
 import Player from './Pages/Player';
 import Greeting from './Pages/HomeGreeting';
+import Navbar from './components/ColorSchemesExample'
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Home />
+    <Navbar />
   </React.StrictMode>
 );
 
