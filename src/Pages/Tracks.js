@@ -51,6 +51,10 @@ export const Tracks = () => {
         window.location.reload();
     }
 
+    const makePlaylist = async (e) => {
+        console.log("THIS A TEST")
+    }
+
     const searchArtists = async (e) => {
         e.preventDefault()
         const { data } = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=5", {       //https://api.spotify.com/v1/search
@@ -93,20 +97,23 @@ export const Tracks = () => {
                 <img src={SpotifyLogo} width="30%" />
 
                 {token ?
+                <div>
                     <form onSubmit={searchArtists}>
                         <Button variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
-
+                        <Button variant="success" onClick={makePlaylist}  style={{ color: 'white' }}>Create Playlist with these Tracks</Button>
                         <div style={{
                             width: "60%",
                             margin: "auto"
                         }}>
-
+                           
                             <ColoredLine color='black' />
                             <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'More Info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, and lyrics will be displayed. </p>
                             <ColoredLine color='black' />
+
                         </div>
                     </form>
-
+                </div>
+                    
                     : <div style={{ width: "30%" }}>
                         <h2>How does this work?</h2>
                         <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
