@@ -15,7 +15,7 @@ export const Tracks = () => {
     const REDIRECT_URI = "http://localhost:3000/Tracks"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
-    const SCOPE = "user-top-read"
+    const SCOPE = "user-top-read playlist-modify-public playlist-modify-private"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
     const dummyToken = "BQDAEyx_JgG-rveNh1GQJtvL7_nvxY2D0PgWI8lCjYGx08lbwKKMDcyUvbGg8TSR_wGKwO_QLd7-5YozKWd_KbAsyFgn5ooeFKCP6YIsIsbASiNFOUlO-QRuFKWFIA7iK7jRs-tDAH21HMfUmfTmfPNR4ljmQUyxm2WHwzTcJm4WNDFQR77DqZip"
@@ -52,7 +52,20 @@ export const Tracks = () => {
     }
 
     const makePlaylist = async (e) => {
+        e.preventDefault()
         console.log("THIS A TEST")
+        await axios.post("https://api.spotify.com/v1/users/{11163535431}/playlists", {       //https://api.spotify.com/v1/search
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            params: {
+                "name": "CS322 Test",
+                "description": "Playlist Built Through Music Programming Web App",
+                "public": false
+            }
+        })
+
+
     }
 
     const searchArtists = async (e) => {

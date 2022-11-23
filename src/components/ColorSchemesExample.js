@@ -21,6 +21,7 @@ import {
 } from "react-router-dom";
 
 
+
 function ColorSchemesExample() {
   return (
     <>
@@ -46,12 +47,13 @@ function ColorSchemesExample() {
         </div>
       </Router>
       <div className="App-header">
-              <Navbar />
-              <h1>Music Programming Project</h1>
-              <p>Name = Liam Aspell</p>
-              <p>Student Number = 17300046</p>
-              <Button href="/Artists" >Explore the Project!</Button>
-          </div>
+        <Navbar />
+    
+        <h1>Music Programming Project</h1>
+        <p>Name = Liam Aspell</p>
+        <p>Student Number = 17300046</p>
+        <Button href="/Artists" >Explore the Project!</Button>
+      </div>
     </>
   );
 }
