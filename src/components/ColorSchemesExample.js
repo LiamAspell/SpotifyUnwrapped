@@ -9,6 +9,7 @@ import { Artists } from '../Pages/Artists';
 import { Greeting } from '../Pages/HomeGreeting';
 import { Tracks } from '../Pages/Tracks';
 import Button from 'react-bootstrap/Button';
+import Authenticate from '../components/Authenticate'
 //import {  } from '../Pages/Artist';
 
 import {
@@ -46,13 +47,15 @@ function ColorSchemesExample() {
           </Routes>
         </div>
       </Router>
-      <div className="App-header">
+      <div className="Homepage-header">
         <Navbar />
     
         <h1>Music Programming Project</h1>
         <p>Name = Liam Aspell</p>
         <p>Student Number = 17300046</p>
         <Button href="/Artists" >Explore the Project!</Button>
+        <Authenticate />
+        
       </div>
     </>
   );

@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
 import TrackModal from "../components/TrackModal";
 import Navbar from "../components/ColorSchemesExample";
+import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
 
 export const Tracks = () => {
@@ -67,27 +68,32 @@ export const Tracks = () => {
      
     }
 
-    const addToQueue = async (e) => {
+   
+
+    function addToQueue  (trackName) {
+        
         console.log("Adding Track to Queue")
-        setTimeout('', 5000);
+        console.log({trackName})
     }
 
     const renderArtists = () => {
         return artists.map(track => (
             <div key={track.id}>
                 <ColoredLine color='black' />
-                {track.name}<br />
+                {track.album.artists[0].name} - {track.name}<br />
                 <img width={"400px"} src={track.album.images[0].url} alt="123" />
                 <form action={track.external_urls.spotify}>
                     <Button variant="secondary" type="submit">See on Spotify</Button>
                     <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
-                    
                 </form>
                 
-                <Button variant="dark" href='/player' onClick={addToQueue} >Go to Player</Button>
+                <Button variant="dark" href='/player' onClick={() =>addToQueue(track.name)} >Go to Player</Button>
 
             </div>
+
+            
         ))
+        
     }
 
     return (
@@ -102,6 +108,7 @@ export const Tracks = () => {
                 <div>
                     <form onSubmit={searchArtists}>
                         <Button variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
+                        <br />
                         <Button variant="success" onClick={makePlaylist}  style={{ color: 'white' }}>Create Playlist with these Tracks</Button>
                         <div style={{
                             width: "60%",
