@@ -13,7 +13,7 @@ import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
-    const REDIRECT_URI = "http://localhost:3000"
+    const REDIRECT_URI = "http://localhost:3000/Player"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
     const SCOPE = "user-top-read"
@@ -99,39 +99,39 @@ export const Tracks = () => {
     return (
         <div className='App'>
             {/* <Navbar /> */}
+           
 
-
-
-            {token ?
+               
+                {token ?
                 <div>
                     <form onSubmit={searchArtists}>
-
+                        
                         <br />
-
+                    
                         <div style={{
                             width: "60%",
                             margin: "auto"
                         }}>
-
-
+                           
+                           
 
                         </div>
                     </form>
                 </div>
+                    
+                    : <div style={{ width: "30%" }}>
+                   
+                    
+                    </div>
 
-                : <div style={{ width: "30%" }}>
+                }
 
+                {!token ?
+                    <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
+                    : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
+                }
 
-                </div>
-
-            }
-
-            {!token ?
-                <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
-                : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
-            }
-
-            {renderArtists()}
+                {renderArtists()}
 
         </div>
     );
