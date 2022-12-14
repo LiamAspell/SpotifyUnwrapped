@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
 import TrackModal from "../components/TrackModal";
-import Navbar from "../components/ColorSchemesExample";
+import Navbar from "./ColorSchemesExample";
 import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
 
@@ -16,11 +16,10 @@ export const Tracks = () => {
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
-    const SCOPE = "user-top-read"
+    const SCOPE = "user-top-read, user-modify-playback-state, streaming, user-read-email, user-read-private, user-library-read, user-library-modify, user-read-playback-state, user-modify-playback-state"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const dummyToken = "BQDAEyx_JgG-rveNh1GQJtvL7_nvxY2D0PgWI8lCjYGx08lbwKKMDcyUvbGg8TSR_wGKwO_QLd7-5YozKWd_KbAsyFgn5ooeFKCP6YIsIsbASiNFOUlO-QRuFKWFIA7iK7jRs-tDAH21HMfUmfTmfPNR4ljmQUyxm2WHwzTcJm4WNDFQR77DqZip"
-    
+   
 
     useEffect(() => {
         const hash = window.location.hash

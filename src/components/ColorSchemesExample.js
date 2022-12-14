@@ -9,8 +9,8 @@ import { Artists } from '../Pages/Artists';
 import { Greeting } from '../Pages/HomeGreeting';
 import { Tracks } from '../Pages/Tracks';
 import Button from 'react-bootstrap/Button';
-import Authenticate from '../components/Authenticate'
-//import {  } from '../Pages/Artist';
+import Authenticate from './Authenticate'
+
 
 import {
   BrowserRouter as Router,
@@ -20,8 +20,6 @@ import {
   Link,
   BrowserRouter
 } from "react-router-dom";
-
-
 
 function ColorSchemesExample() {
   return (

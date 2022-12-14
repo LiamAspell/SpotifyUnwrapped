@@ -10,17 +10,14 @@ import TrackModal from "../components/TrackModal";
 import Navbar from "../components/ColorSchemesExample";
 import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
-
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000/Tracks"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
     const RESPONSE_TYPE = "token"
-    const SCOPE = "user-top-read"
+    const SCOPE = "user-top-read, user-modify-playback-state, streaming, user-read-email, user-read-private, user-library-read, user-library-modify, user-read-playback-state, user-modify-playback-state"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-    const dummyToken = "BQDAEyx_JgG-rveNh1GQJtvL7_nvxY2D0PgWI8lCjYGx08lbwKKMDcyUvbGg8TSR_wGKwO_QLd7-5YozKWd_KbAsyFgn5ooeFKCP6YIsIsbASiNFOUlO-QRuFKWFIA7iK7jRs-tDAH21HMfUmfTmfPNR4ljmQUyxm2WHwzTcJm4WNDFQR77DqZip"
-    
 
     useEffect(() => {
         const hash = window.location.hash
@@ -30,18 +27,15 @@ export const Tracks = () => {
             window.location.hash = ""
             window.localStorage.setItem("token", token)
         }
-
         setToken(token)
     }, [])
 
     const ColoredLine = ({ color }) => (
-        <hr
-            style={{
-                color: color,
-                backgroundColor: color,
-                height: 1
-            }}
-        />
+        <hr style={{
+            color: color,
+            backgroundColor: color,
+            height: 1
+        }} />
     );
 
     const logout = () => {
@@ -65,15 +59,11 @@ export const Tracks = () => {
         })
         console.log(data.items)
         setArtists(data.items)
-     
     }
 
-   
-
-    function addToQueue  (trackName) {
-        
+    function addToQueue(trackName) {
         console.log("Adding Track to Queue")
-        console.log({trackName})
+        console.log({ trackName })
     }
 
     const renderArtists = () => {
@@ -86,62 +76,46 @@ export const Tracks = () => {
                     <Button variant="secondary" type="submit">See on Spotify</Button>
                     <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
                 </form>
-                
-                <Button variant="dark" href='/player' onClick={() =>addToQueue(track.name)} >Go to Player</Button>
-
+                <Button variant="dark" href='/player' onClick={() => addToQueue(track.name)} >Go to Player</Button>
             </div>
-
-            
         ))
-        
     }
 
     return (
         <div className='App'>
-            {/* <Navbar /> */}
             <header className="App-header">
-
                 <h1>Find Your Favourite Tracks</h1>
                 <img src={SpotifyLogo} width="30%" />
-
                 {token ?
-                <div>
-                    <form onSubmit={searchArtists}>
-                        <Button variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
-                        <br />
-                        <Button variant="success" onClick={makePlaylist}  style={{ color: 'white' }}>Create Playlist with these Tracks</Button>
-                        <div style={{
-                            width: "60%",
-                            margin: "auto"
-                        }}>
-                           
-                            <ColoredLine color='black' />
-                            <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'More Info' button, will display the artists analytics, and selecting the 'Go to Player' button, will go to the player page, where music will play, and lyrics will be displayed. </p>
-                            <ColoredLine color='black' />
-
-                        </div>
-                    </form>
-                </div>
-                    
+                    <div>
+                        <form onSubmit={searchArtists}>
+                            <Button variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
+                            <br />
+                            <Button variant="success" onClick={makePlaylist} style={{ color: 'white' }}>Create Playlist with these Tracks</Button>
+                            <div style={{
+                                width: "60%",
+                                margin: "auto"
+                            }}>
+                                <ColoredLine color='black' />
+                                <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top tracks streamed on the spotify platform by the user. Clicking the 'More Info' button, will display the track analytics, and selecting the 'Go to Player' button, will take you to the player page, where the track will play, and lyrics will be displayed. </p>
+                                <ColoredLine color='black' />
+                            </div>
+                        </form>
+                    </div>
                     : <div style={{ width: "30%" }}>
                         <h2>How does this work?</h2>
                         <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
                     </div>
-
                 }
 
                 {!token ?
-                    <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click to Authenticate With Spotify</a>
+                    <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
-
                 {renderArtists()}
-
             </header>
         </div>
     );
-
 }
-
 
 export default Tracks
