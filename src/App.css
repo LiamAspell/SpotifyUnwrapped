@@ -92,3 +92,10 @@
   background-color: rgba(0,0,0,.4);
   /* background-color: #000000cc; */
  }
+
+ .BuiltInPlayer{
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+ }

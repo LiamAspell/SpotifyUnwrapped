@@ -10,6 +10,7 @@ export const Player = () => {
   const RESPONSE_TYPE = "token"
   const SCOPE = "user-top-read, user-modify-playback-state, streaming, user-read-email, user-read-private, user-library-read, user-library-modify, user-read-playback-state, user-modify-playback-state"
   const [token, setToken] = useState("")
+  const track_uri = "spotify:artist:0UVthdD1eqqsoNLX9ek4Xb"    //spotify:track:7xGfFoTpQ2E7fRF5lN10tr
 
   useEffect(() => {
     const hash = window.location.hash
@@ -34,22 +35,36 @@ export const Player = () => {
         <h1>Player</h1>
       </div>
       <div className='App-header'>
+      
         {token ?
-          <div>
+          <div className='BuiltInPlayer'>
+            <div style={{ height: "30%", width: "30%", alignItems: "center",  display:'flex', justifyContent: "center" }}>
             <SpotifyPlayer
               token={token}
-              trackUri="spotify:track:2MuWTIM3b0YEAskbeeFE1i"
+              uris={track_uri}
+              styles={{
+                activeColor: '#fff',
+                bgColor: '#333',
+                color: '#fff',
+                loaderColor: '#fff',
+                sliderColor: 'blue',
+                trackArtistColor: '#00FF00',
+                trackNameColor: '#00FF00', 
+              }}
             />
+            </div>
           </div>
           : <div style={{ width: "30%" }}>
             You are not authenticated.<br />
             To view this page, Please Login with Spotify
           </div>
         }
+
         {!token ?
           <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
           : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
         }
+        
       </div>
     </div>
   );
