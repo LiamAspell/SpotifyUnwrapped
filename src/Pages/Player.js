@@ -28,7 +28,7 @@ export const Player = () => {
     window.localStorage.removeItem("token")
     window.location.reload();
   }
-
+  //   ,
   return (
     <div className='App'>
       <div className="Player-header">
@@ -38,20 +38,30 @@ export const Player = () => {
       
         {token ?
           <div className='BuiltInPlayer'>
-            <div style={{ height: "30%", width: "30%", alignItems: "center",  display:'flex', justifyContent: "center" }}>
+            <div style={{alignItems: "center", display:'flex', width: "40%", height: "100%" }}>      
             <SpotifyPlayer
               token={token}
-              uris={track_uri}
-              styles={{
-                activeColor: '#fff',
-                bgColor: '#333',
-                color: '#fff',
-                loaderColor: '#fff',
-                sliderColor: 'blue',
-                trackArtistColor: '#00FF00',
-                trackNameColor: '#00FF00', 
-              }}
-            />
+                uris={track_uri}
+                styles={{
+                  activeColor: '#1cb954',
+                  altColor: '#ccc',
+                  bgColor: '#fff',
+                  color: '#333',
+                  errorColor: '#a60000',
+                  height: 48,
+                  loaderColor: '#ccc',
+                  loaderSize: 32,
+                  sliderColor: '#666',
+                  sliderHandleBorderRadius: '50%',
+                  sliderHandleColor: '#000',
+                  sliderHeight: 4,
+                  sliderTrackBorderRadius: 0,
+                  sliderTrackColor: '#ccc',
+                  trackArtistColor: '#666',
+                  trackNameColor: '#333',
+               
+                }}
+              />
             </div>
           </div>
           : <div style={{ width: "30%" }}>

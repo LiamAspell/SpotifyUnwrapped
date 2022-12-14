@@ -9,6 +9,7 @@ import ArtistModal from "../components/ArtistModal";
 import TrackModal from "../components/TrackModal";
 import Navbar from "../components/ColorSchemesExample";
 import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
+import { BiHeadphone } from "react-icons/bi";
 
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -76,7 +77,8 @@ export const Tracks = () => {
                     <Button variant="secondary" type="submit">See on Spotify</Button>
                     <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
                 </form>
-                <Button variant="dark" href='/player' onClick={() => addToQueue(track.name)} >Go to Player</Button>
+                <Button variant="dark" href='/player' onClick={() => addToQueue(track.name)}> Listen on Player <BiHeadphone /></Button>
+                
             </div>
         ))
     }
