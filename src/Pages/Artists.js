@@ -6,6 +6,7 @@ import SpotifyLogo from '../resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
+import PlayerModal from "../components/PlayerModal";
 import { BiHeadphone } from "react-icons/bi";
 
 export const Artists = () => {
@@ -64,9 +65,10 @@ export const Artists = () => {
                 <img width={"400px"} src={artist.images[0].url} alt="123" />
                 <form action={artist.external_urls.spotify}>
                     <Button variant="secondary" type="submit">See on Spotify</Button>
-                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} />
+                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
                 </form>
-                <Button variant="dark" href='/player'>Listen on Player <BiHeadphone /></Button>
+                
+                <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal>
             </div>
         ))
     }

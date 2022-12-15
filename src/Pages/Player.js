@@ -10,7 +10,7 @@ export const Player = () => {
   const RESPONSE_TYPE = "token"
   const SCOPE = "user-top-read, user-modify-playback-state, streaming, user-read-email, user-read-private, user-library-read, user-library-modify, user-read-playback-state, user-modify-playback-state"
   const [token, setToken] = useState("")
-  const track_uri = "spotify:artist:0UVthdD1eqqsoNLX9ek4Xb"    //spotify:track:7xGfFoTpQ2E7fRF5lN10tr
+  const track_uri = "spotify:track:7xGfFoTpQ2E7fRF5lN10tr"    //
 
   useEffect(() => {
     const hash = window.location.hash
