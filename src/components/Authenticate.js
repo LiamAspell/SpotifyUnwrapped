@@ -127,7 +127,9 @@ export const Tracks = () => {
 
             {!token ?
                 <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
-                : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
+                :   
+                   <div> <p>Logged in as : Liam</p>
+                    <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button></div>
             }
 
             {renderArtists()}

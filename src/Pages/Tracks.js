@@ -47,7 +47,7 @@ export const Tracks = () => {
     }
 
     const makePlaylist = async (e) => {
-        console.log("THIS A TEST")
+        console.log("ToDo - Create a playlist of the users returned tracks on the spotify application")
     }
 
     const searchArtists = async (e) => {
