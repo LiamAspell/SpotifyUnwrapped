@@ -64,10 +64,13 @@ export const Artists = () => {
         console.log(artists[1])
         return artists.map(artist => (
           
-            <div key={artist.id}>
+            <div key={artist.id} style={{
+                
+                
+            }}>
             <ColoredLine color='black' />
             {artist.name}<br />
-            <img width={"400px"} src={artist.images[0].url} alt="123" />
+            <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
             <form action={artist.external_urls.spotify}>
                 <Button variant="secondary" type="submit">See on Spotify</Button>
                 <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
@@ -83,8 +86,6 @@ export const Artists = () => {
 
     }
 
-
-   
 
     return (
         <div className='App'>
@@ -107,26 +108,28 @@ export const Artists = () => {
                     : <div style={{ width: "60%" }}>
                         <h2>How does this work?</h2>
                         <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
+                        
                     </div>
+                    
                 }
                 {!token ?
                     <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
-                <h1>{artists[0].name}</h1>
-                <h1>{artists[4].name}</h1>
-                <h1>{artists[5].name}</h1>
-                <h1>{artists[6].name}</h1>
-                <h1>{artists[7].name}</h1>
-                <h1>{artists[8].name}</h1>
-                <h1>{artists[9].name}</h1>
-                <h1>{artists[10].name}</h1>
-                {renderArtists()}
                 
                            
-               
+                <div style={{
+                    display:"flex",
+                    flexWrap:"wrap",
+                    alignItems:"center",
+                    justifyContent:"center"
+                   
+                }}>
+                {renderArtists()}
+                </div>
                 
             </header>
+            
         </div>
     );
 
