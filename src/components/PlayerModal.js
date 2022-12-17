@@ -30,7 +30,7 @@ function PlayerModal({artistName, trackUri, token}) {
         <SpotifyPlayer
               token={token}
                 uris={trackUri}
-                play= {true}
+                // play= {true}
                 styles={{
                   
                   activeColor: '#1cb954',
