@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
 import PlayerModal from "../components/PlayerModal";
 import { BiHeadphone } from "react-icons/bi";
-
+import KitchenSinkExample from "../components/KitchenSinkExample" 
 export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000/Artists"
@@ -46,7 +46,7 @@ export const Artists = () => {
 
     const searchArtists = async (e) => {
         e.preventDefault()
-        const { data } = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=30&offset=5", {       //https://api.spotify.com/v1/search
+        const { data } = await axios.get("https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=40&offset=5", {       //https://api.spotify.com/v1/search
             headers: {
                 Authorization: `Bearer ${token}`
             },
@@ -57,35 +57,37 @@ export const Artists = () => {
         setArtists(data.items)
     }
 
-    var x = 0;
+ 
     const renderArtists = () => {
-        console.log(x)
-        x = x + 1
-        console.log(artists[1])
         return artists.map(artist => (
-          
-            <div key={artist.id} style={{
-                
-                
-            }}>
-            <ColoredLine color='black' />
-            {artist.name}<br />
-            <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
-            <form action={artist.external_urls.spotify}>
-                <Button variant="secondary" type="submit">See on Spotify</Button>
-                <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
-            </form>
-            
-            <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal>
-        </div>
-            )
-        
-        
-        )
-        
-
+            <div key={artist.id}>
+                <ColoredLine color='black' />
+                {artist.name}<br />
+                <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
+                <form action={artist.external_urls.spotify}>
+                    <Button variant="secondary" type="submit">See on Spotify</Button>
+                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
+                </form>
+                <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal>
+            </div>
+        ))
     }
 
+    const render = () => {
+        return artists.map(artist => (
+            <div key={artist.id} style={{border:"20px solid rgb(30, 215, 96)"}}>
+                <KitchenSinkExample artistImage={artist.images[0].url} artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token} />
+                {/* <ColoredLine color='black' />
+                {artist.name}<br />
+                <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
+                <form action={artist.external_urls.spotify}>
+                    <Button variant="secondary" type="submit">See on Spotify</Button>
+                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
+                </form>
+                <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal> */}
+            </div>
+        ))
+    }
 
     return (
         <div className='App'>
@@ -122,10 +124,12 @@ export const Artists = () => {
                     display:"flex",
                     flexWrap:"wrap",
                     alignItems:"center",
-                    justifyContent:"center"
-                   
+                    justifyContent:"center",
+                    
                 }}>
-                {renderArtists()}
+                {/* {renderArtists()} */}
+                {render()}
+                
                 </div>
                 
             </header>

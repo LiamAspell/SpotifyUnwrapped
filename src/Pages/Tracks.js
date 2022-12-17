@@ -72,8 +72,8 @@ export const Tracks = () => {
         return artists.map(track => (
             <div key={track.id}>
                 <ColoredLine color='black' />
-                {track.album.artists[0].name} - {track.name}<br />
-                <img width={"400px"} src={track.album.images[0].url} alt="123" />
+                 {track.name}<br />
+                <img width={"400px"} height={"400px"} src={track.album.images[0].url} alt="123" />
                 <form action={track.external_urls.spotify}>
                     <Button variant="secondary" type="submit">See on Spotify</Button>
                     <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
@@ -115,7 +115,16 @@ export const Tracks = () => {
                     <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
+
+                <div style={{
+                    display:"flex",
+                    flexWrap:"wrap",
+                    alignItems:"center",
+                    justifyContent:"center",
+                }}>
                 {renderArtists()}
+                </div>
+                
             </header>
         </div>
     );
