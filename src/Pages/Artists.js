@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect, useState } from "react";
 import '../App.css';
 import axios from 'axios';
-import SpotifyLogo from '../resources/Spotify.jpg';
+import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
@@ -61,7 +61,7 @@ export const Artists = () => {
     const renderArtists = () => {
         return artists.map(artist => (
             <div key={artist.id}>
-                <ColoredLine color='black' />
+                <ColoredLine color='green' />
                 {artist.name}<br />
                 <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
                 <form action={artist.external_urls.spotify}>
@@ -75,7 +75,7 @@ export const Artists = () => {
 
     const render = () => {
         return artists.map(artist => (
-            <div key={artist.id} style={{border:"20px solid rgb(30, 215, 96)"}}>
+            <div key={artist.id} style={{border:"20px solid #121212"}}>
                 <KitchenSinkExample artistImage={artist.images[0].url} artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token} />
                 {/* <ColoredLine color='black' />
                 {artist.name}<br />
@@ -94,7 +94,7 @@ export const Artists = () => {
             {/* <Navbar /> */}
             <header className="App-header">
                 <h1>Find Your Favourite Artists</h1>
-                <img src={SpotifyLogo} width="30%" alt="logo" />
+                <img src={SpotifyLogo} width="30%" />
                 {token ?
                     <form onSubmit={searchArtists}>
                         <Button variant="success" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Artists</Button>
@@ -125,6 +125,8 @@ export const Artists = () => {
                     flexWrap:"wrap",
                     alignItems:"center",
                     justifyContent:"center",
+                    backgroundColor: "#121212",
+                    color:"black"
                     
                 }}>
                 {/* {renderArtists()} */}

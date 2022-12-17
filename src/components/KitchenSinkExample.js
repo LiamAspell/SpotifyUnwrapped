@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import ArtistModal from "../components/ArtistModal";
 import PlayerModal from "../components/PlayerModal";
 function KitchenSinkExample({artistImage, artistName, artistFollowers, artistPopularity, artistGenre, trackUri, token}) {
-  console.log()
+  console.log(artistImage)
+  console.log(artistName)
   return (
     <Card style={{ width: '20rem', backgroundColor: 'rgb(30, 215, 96)' }}>
       <Card.Img variant="top" src={artistImage} width={"300px"} height={"350px"}/>
