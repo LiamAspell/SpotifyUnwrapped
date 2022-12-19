@@ -5,9 +5,9 @@ import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import ArtistModal from "../components/ArtistModal";
-import PlayerModal from "../components/PlayerModal";
-import { BiHeadphone } from "react-icons/bi";
+// import ArtistModal from "../components/ArtistModal";
+// import PlayerModal from "../components/PlayerModal";
+
 import KitchenSinkExample from "../components/KitchenSinkExample" 
 export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -58,20 +58,20 @@ export const Artists = () => {
     }
 
  
-    const renderArtists = () => {
-        return artists.map(artist => (
-            <div key={artist.id}>
-                <ColoredLine color='green' />
-                {artist.name}<br />
-                <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
-                <form action={artist.external_urls.spotify}>
-                    <Button variant="secondary" type="submit">See on Spotify</Button>
-                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
-                </form>
-                <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal>
-            </div>
-        ))
-    }
+    // const renderArtists = () => {
+    //     return artists.map(artist => (
+    //         <div key={artist.id}>
+    //             <ColoredLine color='green' />
+    //             {artist.name}<br />
+    //             <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
+    //             <form action={artist.external_urls.spotify}>
+    //                 <Button variant="secondary" type="submit">See on Spotify</Button>
+    //                 <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
+    //             </form>
+    //             <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal>
+    //         </div>
+    //     ))
+    // }
 
     const render = () => {
         return artists.map(artist => (
@@ -94,7 +94,7 @@ export const Artists = () => {
             {/* <Navbar /> */}
             <header className="App-header">
                 <h1>Find Your Favourite Artists</h1>
-                <img src={SpotifyLogo} width="30%" />
+                <img src={SpotifyLogo} width="30%" alt="ProjectLogo" />
                 {token ?
                     <form onSubmit={searchArtists}>
                         <Button variant="success" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Artists</Button>

@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useEffect, useState } from "react";
 import '../App.css';
 import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import ArtistModal from "../components/ArtistModal";
-import TrackModal from "../components/TrackModal";
-import Navbar from "../components/ColorSchemesExample";
-import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
-import { BiHeadphone } from "react-icons/bi";
-import PlayerModal from "../components/PlayerModal";
+// import ArtistModal from "../components/ArtistModal";
+// import TrackModal from "../components/TrackModal";
+// import Navbar from "../components/ColorSchemesExample";
+// import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
+// import { BiHeadphone } from "react-icons/bi";
+// import PlayerModal from "../components/PlayerModal";
 import KitchenSinkExample from "../components/KitchenSinkExample"
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -68,21 +68,21 @@ export const Tracks = () => {
         console.log({ trackName })
     }
 
-    const renderArtists = () => {
-        return artists.map(track => (
-            <div key={track.id}>
-                <ColoredLine color='black' />
-                {track.name}<br />
-                <img width={"400px"} height={"400px"} src={track.album.images[0].url} alt="123" />
-                <form action={track.external_urls.spotify}>
-                    <Button variant="secondary" type="submit">See on Spotify</Button>
-                    <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
-                </form>
-                <PlayerModal artistName={track.album.artists[0].name} trackUri={track.uri} token={token}></PlayerModal>
+    // const renderArtists = () => {
+    //     return artists.map(track => (
+    //         <div key={track.id}>
+    //             <ColoredLine color='black' />
+    //             {track.name}<br />
+    //             <img width={"400px"} height={"400px"} src={track.album.images[0].url} alt="123" />
+    //             <form action={track.external_urls.spotify}>
+    //                 <Button variant="secondary" type="submit">See on Spotify</Button>
+    //                 <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
+    //             </form>
+    //             <PlayerModal artistName={track.album.artists[0].name} trackUri={track.uri} token={token}></PlayerModal>
 
-            </div>
-        ))
-    }
+    //         </div>
+    //     ))
+    // }
 
     const render = () => {
         
@@ -106,7 +106,7 @@ export const Tracks = () => {
         <div className='App'>
             <header className="App-header">
                 <h1>Find Your Favourite Tracks</h1>
-                <img src={SpotifyLogo} width="30%" />
+                <img src={SpotifyLogo} width="30%" alt="ProjectLogo" />
                 {token ?
                     <div>
                         <form onSubmit={searchArtists}>
