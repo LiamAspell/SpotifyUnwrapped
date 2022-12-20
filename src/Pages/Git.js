@@ -1,5 +1,5 @@
 import React from 'react';
-import Authenticate from '../components/Authenticate';
+
 
 export const Git = () => {
   return (

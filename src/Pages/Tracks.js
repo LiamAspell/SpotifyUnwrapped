@@ -5,12 +5,6 @@ import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-// import ArtistModal from "../components/ArtistModal";
-// import TrackModal from "../components/TrackModal";
-// import Navbar from "../components/ColorSchemesExample";
-// import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
-// import { BiHeadphone } from "react-icons/bi";
-// import PlayerModal from "../components/PlayerModal";
 import KitchenSinkExample from "../components/KitchenSinkExample"
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -68,37 +62,12 @@ export const Tracks = () => {
         console.log({ trackName })
     }
 
-    // const renderArtists = () => {
-    //     return artists.map(track => (
-    //         <div key={track.id}>
-    //             <ColoredLine color='black' />
-    //             {track.name}<br />
-    //             <img width={"400px"} height={"400px"} src={track.album.images[0].url} alt="123" />
-    //             <form action={track.external_urls.spotify}>
-    //                 <Button variant="secondary" type="submit">See on Spotify</Button>
-    //                 <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
-    //             </form>
-    //             <PlayerModal artistName={track.album.artists[0].name} trackUri={track.uri} token={token}></PlayerModal>
-
-    //         </div>
-    //     ))
-    // }
-
     const render = () => {
         
         return artists.map(track => (
             <div key={track.id} style={{ border: "20px solid #121212" }}>
                 <KitchenSinkExample artistImage={track.album.images[0].url} artistName={track.album.name} artistFollowers={track.album.release_date} artistPopularity={track.album.release_date} artistGenre={track.album.release_date} trackUri={track.uri} token={token} />
-                {/* <ColoredLine color='black' />
-                {artist.name}<br />
-                <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
-                <form action={artist.external_urls.spotify}>
-                    <Button variant="secondary" type="submit">See on Spotify</Button>
-                    <ArtistModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} token={token} />
-                </form>
-                <PlayerModal artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token}></PlayerModal> */}
             </div>
-            
         ))
     }
 
@@ -128,7 +97,6 @@ export const Tracks = () => {
                         <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
                     </div>
                 }
-
                 {!token ?
                     <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
@@ -142,7 +110,6 @@ export const Tracks = () => {
                    backgroundColor: "#121212",
                    color:"black"
                 }}>
-                    
                     {render()}
                 </div>
 
@@ -150,5 +117,4 @@ export const Tracks = () => {
         </div>
     );
 }
-
 export default Tracks
