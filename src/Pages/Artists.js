@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 
 
 import KitchenSinkExample from "../components/KitchenSinkExample" 
+import { BiBorderAll } from 'react-icons/bi';
 export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000/Artists"
@@ -100,9 +101,10 @@ export const Artists = () => {
                     backgroundColor: "#121212",
                     color:"white"
                     
+                    
                 }}>
-                <h1>Find Your Favourite Artists</h1>
-                <img src={SpotifyLogo} width="30%" alt="ProjectLogo" />
+                <h1 style={{width:"45%"}}>Find Your Favourite Artists</h1>
+                <img src={SpotifyLogo} width="20%" alt="ProjectLogo" />
                 
                     {token ?
                     <form onSubmit={searchArtists}>
@@ -116,9 +118,9 @@ export const Artists = () => {
                             <ColoredLine color='black' />
                         </div>
                     </form>
-                    : <div style={{ width: "60%" }}>
-                        <h2>How does this work?</h2>
-                        <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
+                    : <div style={{ width: "40%" }}>
+                        <h2 style={{}}>How does this work?</h2>
+                        <p style={{width : "90%", margin: "left"}}>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
                         
                     </div>
                     
