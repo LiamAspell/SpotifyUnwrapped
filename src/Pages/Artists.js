@@ -5,8 +5,7 @@ import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-// import ArtistModal from "../components/ArtistModal";
-// import PlayerModal from "../components/PlayerModal";
+
 
 import KitchenSinkExample from "../components/KitchenSinkExample" 
 export const Artists = () => {
@@ -93,9 +92,19 @@ export const Artists = () => {
         <div className='App'>
             {/* <Navbar /> */}
             <header className="App-header">
+            <div style={{
+                    display:"flex",
+                    flexWrap:"wrap",
+                    alignItems:"center",
+                    justifyContent:"center",
+                    backgroundColor: "#121212",
+                    color:"white"
+                    
+                }}>
                 <h1>Find Your Favourite Artists</h1>
                 <img src={SpotifyLogo} width="30%" alt="ProjectLogo" />
-                {token ?
+                
+                    {token ?
                     <form onSubmit={searchArtists}>
                         <Button variant="success" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Artists</Button>
                         <div style={{
@@ -118,7 +127,7 @@ export const Artists = () => {
                     <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
-                
+                </div>
                            
                 <div style={{
                     display:"flex",

@@ -26,7 +26,7 @@ function PlayerModal({artistName, trackUri, token}) {
           <Modal.Title>{artistName}</Modal.Title> 
         </Modal.Header>
         <Modal.Body>
-    
+        <p>{trackUri}</p>
         <SpotifyPlayer
               token={token}
                 uris={trackUri}
