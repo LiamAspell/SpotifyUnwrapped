@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 import '../App.css';
 import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
+import  GetTrack  from '../components/CurrentlyPlaying';
 
 
 import KitchenSinkExample from "../components/KitchenSinkExample" 
@@ -76,6 +77,7 @@ export const Artists = () => {
         return artists.map(artist => (
             <div key={artist.id} style={{border:"20px solid #121212"}}>
                 <KitchenSinkExample artistImage={artist.images[0].url} artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token} />
+             
                 {/* <ColoredLine color='black' />
                 {artist.name}<br />
                 <img width={"400px"} height={"400px"} src={artist.images[0].url} alt="123" />
@@ -116,15 +118,17 @@ export const Artists = () => {
                             <ColoredLine color='black' />
                         </div>
                     </form>
-                    : <div style={{ width: "60%" }}>
+                    : <div style={{alignItems:'center',
+                                    justifyContent:'center',
+                                    display:'flex'}}><div style={{ width: "50%" }}>
                         <h2>How does this work?</h2>
                         <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
                         
-                    </div>
+                    </div><br /></div>
                     
                 }
                 {!token ?
-                    <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
+                    <div><Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button></div>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
                 </div>
