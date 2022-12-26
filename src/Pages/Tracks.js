@@ -6,6 +6,7 @@ import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
 import KitchenSinkExample from "../components/KitchenSinkExample"
+
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000/Tracks"
@@ -114,6 +115,7 @@ export const Tracks = () => {
                 </div>
 
             </header>
+            
         </div>
     );
 }

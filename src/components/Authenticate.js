@@ -104,15 +104,11 @@ export const Tracks = () => {
             {token ?
                 <div>
                     <form onSubmit={searchArtists}>
-
                         <br />
-
                         <div style={{
                             width: "60%",
                             margin: "auto"
                         }}>
-
-
 
                         </div>
                     </form>

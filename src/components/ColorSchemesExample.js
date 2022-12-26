@@ -8,8 +8,8 @@ import { Artists } from '../Pages/Artists';
 import { Greeting } from '../Pages/HomeGreeting';
 import { Tracks } from '../Pages/Tracks';
 import Button from 'react-bootstrap/Button';
-import Authenticate from './Authenticate'
-
+import Authenticate from './Authenticate';
+import Carousel from './ControlledCarousel';
 
 import {
   BrowserRouter as Router,
@@ -50,6 +50,7 @@ function ColorSchemesExample() {
         <h1>Spotify Unwrapped</h1>
 
         <Button href="/Artists" >Explore the Project!</Button>
+        
         <Authenticate />
         
        
