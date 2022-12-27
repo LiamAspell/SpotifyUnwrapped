@@ -1,14 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useEffect, useState } from "react";
 import '../App.css';
 import axios from 'axios';
-import SpotifyLogo from '../resources/Spotify.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import ArtistModal from "../components/ArtistModal";
 import TrackModal from "../components/TrackModal";
-import Navbar from "./ColorSchemesExample";
-import { hasSelectionSupport } from '@testing-library/user-event/dist/utils';
 
 
 export const Tracks = () => {
@@ -19,7 +15,6 @@ export const Tracks = () => {
     const SCOPE = "user-top-read, user-modify-playback-state, streaming, user-read-email, user-read-private, user-library-read, user-library-modify, user-read-playback-state, user-modify-playback-state"
     const [token, setToken] = useState("")
     const [artists, setArtists] = useState([])
-   
 
     useEffect(() => {
         const hash = window.location.hash
@@ -64,13 +59,9 @@ export const Tracks = () => {
         })
         console.log(data.items)
         setArtists(data.items)
-     
     }
 
-   
-
-    function addToQueue  (trackName) {
-        
+    function addToQueue(trackName) {
         console.log("Adding Track to Queue")
         console.log({trackName})
     }
@@ -85,22 +76,15 @@ export const Tracks = () => {
                     <Button variant="secondary" type="submit">See on Spotify</Button>
                     <TrackModal artistName={track.name} releaseDate={track.album.release_date} albumName={track.album.name} artist={track.album.artists[0].name} />
                 </form>
-                
+
                 <Button variant="dark" href='/player' onClick={() =>addToQueue(track.name)} >Go to Player</Button>
-
             </div>
-
-            
         ))
-        
     }
 
     return (
         <div className='App'>
             {/* <Navbar /> */}
-
-
-
             {token ?
                 <div>
                     <form onSubmit={searchArtists}>
@@ -109,22 +93,16 @@ export const Tracks = () => {
                             width: "60%",
                             margin: "auto"
                         }}>
-
                         </div>
                     </form>
                 </div>
-
                 : <div style={{ width: "30%" }}>
-
-
                 </div>
-
             }
-
             {!token ?
                 <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                 :   
-                   <div> <p>Logged in as : Liam</p>
+                   <div> 
                     <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button></div>
             }
 

@@ -83,7 +83,7 @@ export const Tracks = () => {
                     backgroundColor: "#121212",
                     color: "white"
                 }}>
-                <h1>Find Your Favourite Tracks</h1>
+                <h1 style={{ width: "45%" }}>Find Your Favourite Tracks</h1>
                 <img src={SpotifyLogo} width="20%" alt="ProjectLogo" />
                 {token ?
                     <div>
