@@ -75,8 +75,16 @@ export const Tracks = () => {
     return (
         <div className='App'>
             <header className="App-header">
+            <div style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "#121212",
+                    color: "white"
+                }}>
                 <h1>Find Your Favourite Tracks</h1>
-                <img src={SpotifyLogo} width="30%" alt="ProjectLogo" />
+                <img src={SpotifyLogo} width="20%" alt="ProjectLogo" />
                 {token ?
                     <div>
                         <form onSubmit={searchArtists}>
@@ -93,16 +101,20 @@ export const Tracks = () => {
                             </div>
                         </form>
                     </div>
-                    : <div style={{ width: "30%" }}>
+                    : <div style={{
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        display: 'flex'
+                    }}><div style={{ width: "50%" }}>
                         <h2>How does this work?</h2>
                         <p>When authenticated with Spotify, hit the search button! This will bring up a list of the accounts most played artists / tracks, along with links to play music with a built in player which implements to Spotify Api Playback Endpoint </p>
-                    </div>
+                    </div><br /> </div>
                 }
                 {!token ?
                     <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                     : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
-
+                </div>
                 <div style={{
                    display:"flex",
                    flexWrap:"wrap",
