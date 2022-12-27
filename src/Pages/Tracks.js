@@ -5,7 +5,7 @@ import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import KitchenSinkExample from "../components/KitchenSinkExample"
+import TrackCard from "../components/TrackCard"
 
 export const Tracks = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -67,7 +67,7 @@ export const Tracks = () => {
         
         return artists.map(track => (
             <div key={track.id} style={{ border: "20px solid #121212" }}>
-                <KitchenSinkExample artistImage={track.album.images[0].url} artistName={track.album.name} artistFollowers={track.album.release_date} artistPopularity={track.album.release_date} artistGenre={track.album.release_date} trackUri={track.uri} token={token} />
+                <TrackCard artist={track.artists[0].name} trackImage={track.album.images[0].url} trackName={track.name} albumName = {track.album.name} albumReleaseDate={track.album.release_date} trackUri={track.uri} token={token} />
             </div>
         ))
     }
