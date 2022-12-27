@@ -60,6 +60,7 @@ export const Tracks = () => {
 
     function addToQueue(trackName) {
         console.log("Adding Track to Queue")
+        //Loop through all the data as done below with artists mapping, take every song name / track uri and add it to a playlist
         console.log({ trackName })
     }
 
@@ -92,7 +93,7 @@ export const Tracks = () => {
                             <br />
                             <Button variant="success" onClick={makePlaylist} style={{ color: 'white' }}>Create Playlist with these Tracks</Button>
                             <div style={{
-                                width: "60%",
+                                width: "50%",
                                 margin: "auto"
                             }}>
                                 <ColoredLine color='black' />

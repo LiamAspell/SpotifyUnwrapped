@@ -10,7 +10,7 @@ function TrackCard({artist, trackImage, trackName, albumName, albumReleaseDate, 
       <Card.Img variant="top" src={trackImage} width={"300px"} height={"350px"}/>
       <Card.Body>
         <Card.Title> {trackName}</Card.Title>
-        <Button variant="secondary" type="submit">See on Spotify</Button>
+        <Button variant="secondary"  href={trackUri}>See on Spotify </Button>
         <TrackModal artist = {artist} trackName={trackName} albumName = {albumName} albumReleaseDate = {albumReleaseDate}/>
         <PlayerModal   trackUri={trackUri} token={token}></PlayerModal>
       </Card.Body>

@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import SpotifyPlayer from 'react-spotify-web-playback'
 import { BiHeadphone } from "react-icons/bi";
 
-function PlayerModal({ trackUri, token}) {
+function PlayerModal({artistName, trackUri, token}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -23,16 +23,14 @@ function PlayerModal({ trackUri, token}) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Test</Modal.Title> 
+          <Modal.Title>{artistName}</Modal.Title> 
         </Modal.Header>
         <Modal.Body>
-        <p>{trackUri}</p>
+        
         <SpotifyPlayer
               token={token}
                 uris={trackUri}
-                // play= {true}
                 styles={{
-                  
                   activeColor: '#1cb954',
                   altColor: '#ccc',
                   bgColor: '#fff',

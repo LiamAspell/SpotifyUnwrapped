@@ -6,7 +6,7 @@ import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import GetTrack from '../components/CurrentlyPlaying';
-import KitchenSinkExample from "../components/KitchenSinkExample"
+import ArtistCard from "../components/ArtistCard"
 import { BiBorderAll } from 'react-icons/bi';
 export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
@@ -59,7 +59,7 @@ export const Artists = () => {
     const render = () => {
         return artists.map(artist => (
             <div key={artist.id} style={{ border: "20px solid #121212" }}>
-                <KitchenSinkExample artistImage={artist.images[0].url} artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token} />
+                <ArtistCard artistImage={artist.images[0].url} artistName={artist.name} artistFollowers={artist.followers.total} artistPopularity={artist.popularity} artistGenre={artist.genres[0]} trackUri={artist.uri} token={token} />
             </div>
         ))
     }
@@ -82,7 +82,7 @@ export const Artists = () => {
                         <form onSubmit={searchArtists}>
                             <Button variant="success" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Artists</Button>
                             <div style={{
-                                width: "60%",
+                                width: "50%",
                                 margin: "auto"
                             }}>
                                 <ColoredLine color='black' />
