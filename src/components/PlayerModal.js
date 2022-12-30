@@ -1,14 +1,32 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import SpotifyPlayer from 'react-spotify-web-playback'
 import { BiHeadphone } from "react-icons/bi";
+import axios from 'axios';
 
-function PlayerModal({artistName, trackUri, token}) {
+function PlayerModal({artist, trackName, trackUri, token}) {
   const [show, setShow] = useState(false);
+  
+
+  // const lyricsFinder = require('lyrics-finder');
+  // (async function(artist, title) {
+  //     let lyrics = await lyricsFinder(artist, title) || "Not Found!";
+  //     console.log(lyrics);
+  // })(artist, trackName);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const displayLyrics = () => 
+  {
+    return (
+      <div>
+        {/* {lyricsFinder} */}
+      </div>
+    )
+    }
+  
 
   return (
     <>
@@ -23,10 +41,10 @@ function PlayerModal({artistName, trackUri, token}) {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>{artistName}</Modal.Title> 
+          <Modal.Title>{artist}</Modal.Title> 
         </Modal.Header>
         <Modal.Body>
-        
+        {displayLyrics()}
         <SpotifyPlayer
               token={token}
                 uris={trackUri}

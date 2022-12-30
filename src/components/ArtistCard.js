@@ -12,7 +12,7 @@ function ArtistCard({artistImage, artistName, artistFollowers, artistPopularity,
         <Card.Title>{artistName}</Card.Title>
         <Button variant="secondary" href={trackUri}>See on Spotify</Button>
         <ArtistModal artistName={artistName} artistFollowers={artistFollowers} artistPopularity={artistPopularity} artistGenre={artistGenre}  token={token} />
-        <PlayerModal artistName={artistName} artistFollowers={artistFollowers} artistPopularity={artistPopularity} artistGenre={artistGenre} trackUri={trackUri} token={token}></PlayerModal>
+        <PlayerModal artist={artistName} artistFollowers={artistFollowers} artistPopularity={artistPopularity} artistGenre={artistGenre} trackUri={trackUri} token={token}></PlayerModal>
       </Card.Body>
       <ListGroup >
         

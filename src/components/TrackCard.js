@@ -12,7 +12,7 @@ function TrackCard({artist, trackImage, trackName, albumName, albumReleaseDate, 
         <Card.Title> {trackName}</Card.Title>
         <Button variant="secondary"  href={trackUri}>See on Spotify </Button>
         <TrackModal artist = {artist} trackName={trackName} albumName = {albumName} albumReleaseDate = {albumReleaseDate}/>
-        <PlayerModal   trackUri={trackUri} token={token}></PlayerModal>
+        <PlayerModal artist={artist} trackName={trackName} trackUri={trackUri} token={token}></PlayerModal>
       </Card.Body>
       <ListGroup >
         
