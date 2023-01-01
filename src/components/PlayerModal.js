@@ -4,28 +4,14 @@ import Modal from 'react-bootstrap/Modal';
 import SpotifyPlayer from 'react-spotify-web-playback'
 import { BiHeadphone } from "react-icons/bi";
 import axios from 'axios';
+import Video from './VideoSearch';
 
 function PlayerModal({artist, trackName, trackUri, token}) {
   const [show, setShow] = useState(false);
-  
-
-  // const lyricsFinder = require('lyrics-finder');
-  // (async function(artist, title) {
-  //     let lyrics = await lyricsFinder(artist, title) || "Not Found!";
-  //     console.log(lyrics);
-  // })(artist, trackName);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const displayLyrics = () => 
-  {
-    return (
-      <div>
-        {/* {lyricsFinder} */}
-      </div>
-    )
-    }
+
   
 
   return (
@@ -44,12 +30,13 @@ function PlayerModal({artist, trackName, trackUri, token}) {
           <Modal.Title>{artist}</Modal.Title> 
         </Modal.Header>
         <Modal.Body>
-        {displayLyrics()}
+        <Video artist={artist} track={trackName}/>
         <SpotifyPlayer
               token={token}
                 uris={trackUri}
                 styles={{
                   activeColor: '#1cb954',
+                  autoPlay: 'True',
                   altColor: '#ccc',
                   bgColor: '#fff',
                   color: '#333',
@@ -61,10 +48,12 @@ function PlayerModal({artist, trackName, trackUri, token}) {
                   sliderHandleBorderRadius: '50%',
                   sliderHandleColor: '#000',
                   sliderHeight: 8,
+                  play:'True',
                   sliderTrackBorderRadius: 0,
                   sliderTrackColor: '#ccc',
                   trackArtistColor: '#666',
                   trackNameColor: '#333',
+                  
                
                 }}
                 

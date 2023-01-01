@@ -86,7 +86,7 @@ export const Artists = () => {
                                 margin: "auto"
                             }}>
                                 <ColoredLine color='black' />
-                                <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'More Info' button, will display the artists analytics, and selecting the 'Go to Player' button, will link you to the player page, where the artists music will play, and lyrics will be displayed. </p>
+                                <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top artists streamed from the spotify platform by the user. Clicking the 'More Info' button, will display the artists analytics, and selecting the 'Go to Player' button, will link you to the player page, where the artists music will play. </p>
                                 <ColoredLine color='black' />
                             </div>
                         </form>

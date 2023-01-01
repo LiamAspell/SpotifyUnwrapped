@@ -43,8 +43,9 @@ export const Tracks = () => {
 
     const makePlaylist = async (e) => {
         console.log("ToDo - Create a playlist of the users returned tracks on the spotify application")
-    }
+        
 
+    }
     const searchArtists = async (e) => {
         e.preventDefault()
         const { data } = await axios.get("https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=40&offset=5", {       //https://api.spotify.com/v1/search
@@ -58,11 +59,6 @@ export const Tracks = () => {
         setArtists(data.items)
     }
 
-    function addToQueue(trackName) {
-        console.log("Adding Track to Queue")
-        //Loop through all the data as done below with artists mapping, take every song name / track uri and add it to a playlist
-        console.log({ trackName })
-    }
 
     const render = () => {
         
@@ -97,7 +93,7 @@ export const Tracks = () => {
                                 margin: "auto"
                             }}>
                                 <ColoredLine color='black' />
-                                <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top tracks streamed on the spotify platform by the user. Clicking the 'More Info' button, will display the track analytics, and selecting the 'Go to Player' button, will take you to the player page, where the track will play, and lyrics will be displayed. </p>
+                                <p>By hitting the button above, The Spotify API is queried to return user data, in the form of the top tracks streamed on the spotify platform by the user. Clicking the 'More Info' button, will display the track analytics, and selecting the 'Go to Player' button, will take you to the player page, where the track will play. </p>
                                 <ColoredLine color='black' />
                             </div>
                         </form>
