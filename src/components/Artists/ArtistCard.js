@@ -2,7 +2,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
 import ArtistModal from "./ArtistModal";
-import PlayerModal from "./PlayerModal";
+import PlayerModal from "./ArtistPlayerModal";
 function ArtistCard({artistImage, artistName, artistFollowers, artistPopularity, artistGenre, trackUri, token}) {
  
   return (

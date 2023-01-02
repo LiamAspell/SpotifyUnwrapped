@@ -4,15 +4,12 @@ import Modal from 'react-bootstrap/Modal';
 import SpotifyPlayer from 'react-spotify-web-playback'
 import { BiHeadphone } from "react-icons/bi";
 import axios from 'axios';
-import Video from './VideoSearch';
+import Video from './ArtistVideoSearch';
 
 function PlayerModal({artist, trackName, trackUri, token}) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
-  
 
   return (
     <>
@@ -30,7 +27,15 @@ function PlayerModal({artist, trackName, trackUri, token}) {
           <Modal.Title>{artist}</Modal.Title> 
         </Modal.Header>
         <Modal.Body>
-        <Video artist={artist} track={trackName}/>
+          <div style={{
+            display: "flex",
+            flexWrap: "wrap",
+            alignItems: "center",
+            justifyContent: "center",
+          }}>
+          <Video artist={artist} track={trackName}/>
+          </div>
+        
         <SpotifyPlayer
               token={token}
                 uris={trackUri}

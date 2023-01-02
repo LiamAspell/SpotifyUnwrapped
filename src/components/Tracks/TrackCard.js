@@ -1,8 +1,8 @@
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Button from 'react-bootstrap/Button';
-import TrackModal from "../components/TrackModal";
-import PlayerModal from "../components/PlayerModal";
+import TrackModal from "./TrackModal";
+import PlayerModal from "./PlayerModal";
 function TrackCard({artist, trackImage, trackName, albumName, albumReleaseDate, trackUri,  token}) {
   
   return (

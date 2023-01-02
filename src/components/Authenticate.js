@@ -4,7 +4,7 @@ import '../App.css';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Button from 'react-bootstrap/Button';
-import TrackModal from "../components/TrackModal";
+import TrackModal from "../components/Tracks/TrackModal";
 
 
 export const Tracks = () => {

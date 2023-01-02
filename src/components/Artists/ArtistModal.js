@@ -29,12 +29,7 @@ function ArtistModal({artistName, artistFollowers, artistPopularity, artistGenre
           <p>Artist Followers - {artistFollowers}</p>
           <p>Genre - {artistGenre} </p> 
         </Modal.Body>
-        {/* <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer> */}
+       
       </Modal>
     </>
   );

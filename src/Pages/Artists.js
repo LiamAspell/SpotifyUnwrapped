@@ -5,9 +5,8 @@ import axios from 'axios';
 import SpotifyLogo from '../resources/music-icon.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import GetTrack from '../components/CurrentlyPlaying';
-import ArtistCard from "../components/ArtistCard"
-import { BiBorderAll } from 'react-icons/bi';
+import ArtistCard from "../components/Artists/ArtistCard"
+
 export const Artists = () => {
     const CLIENT_ID = "89dba4db4d2642e2ac2e0f4d5dc0d457"
     const REDIRECT_URI = "http://localhost:3000/Artists"
