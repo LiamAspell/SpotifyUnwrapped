@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Logo from '../resources/SpotifyUnwrapped.png'
 import '../App.css';
 import { Git } from '../Pages/Git';
 import { Player } from '../Pages/Player';
@@ -35,9 +36,13 @@ function ColorSchemesExample() {
       <div className="Homepage-header">
         <Navbar />
         <h1>Spotify Unwrapped</h1>
+        {/* <img src={Logo} height="100px"/>  */}
         <img src={SpotifyLogo} width="20%" alt="ProjectLogo" />
-        <div style={{width:"60%"}}>
-        <p>This is a Music Programming Project which intends to extend the functionality of Spotify, achieved by using the Spotify API and Youtube v3 API.</p>
+        <div style={{   width: '50%',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        display: 'flex'}}>
+        <center><p>This is a Music Programming Project as part of the CS322 Music Programming Module. This project intends to extend the functionality of Spotify, achieved by using the Spotify API and Youtube v3 API.</p></center>
         </div>
         <div style={{
             display: "flex",
@@ -48,7 +53,7 @@ function ColorSchemesExample() {
 
           
           <Button href="/Artists" >Explore the Artists Section</Button>
-          <button href="/Tracks" class="btn btn-success">Explore the Tracks Section</button>
+          <button href="/Tracks" class="btn btn-warning">Explore the Tracks Section</button>
 
         </div>
         <Authenticate />

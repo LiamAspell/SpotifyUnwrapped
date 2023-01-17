@@ -87,7 +87,7 @@ export const Tracks = () => {
                         <form onSubmit={searchArtists}>
                             <Button variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
                             <br />
-                            <Button variant="success" onClick={makePlaylist} style={{ color: 'white' }}>Create Playlist with these Tracks</Button>
+                            {/* <Button variant="success" onClick={makePlaylist} style={{ color: 'white' }}>Create Playlist with these Tracks</Button> */}
                             <div style={{
                                 width: "50%",
                                 margin: "auto"
