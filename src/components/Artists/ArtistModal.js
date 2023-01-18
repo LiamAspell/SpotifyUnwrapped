@@ -11,7 +11,7 @@ function ArtistModal({artistName, artistFollowers, artistPopularity, artistGenre
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="primary" id={artistName} onClick={handleShow}>
         More Info
       </Button>
 

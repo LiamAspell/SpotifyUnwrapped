@@ -85,7 +85,7 @@ export const Tracks = () => {
                 {token ?
                     <div>
                         <form onSubmit={searchArtists}>
-                            <Button variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
+                            <Button id="findTracks" variant="primary" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Tracks</Button>
                             <br />
                             {/* <Button variant="success" onClick={makePlaylist} style={{ color: 'white' }}>Create Playlist with these Tracks</Button> */}
                             <div style={{
@@ -108,8 +108,8 @@ export const Tracks = () => {
                     </div><br /> </div>
                 }
                 {!token ?
-                    <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
-                    : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
+                    <Button variant="success" id="Login" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
+                    : <Button variant="danger" id="Logout" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                 }
                 </div>
                 <div style={{

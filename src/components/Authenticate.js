@@ -100,10 +100,10 @@ export const Tracks = () => {
                 </div>
             }
             {!token ?
-                <Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
+                <Button id="Login" variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button>
                 :   
                    <div> 
-                    <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button></div>
+                    <Button id="Logout" variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button></div>
             }
 
             {renderArtists()}

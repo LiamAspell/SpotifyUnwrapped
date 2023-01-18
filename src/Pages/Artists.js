@@ -79,7 +79,7 @@ export const Artists = () => {
 
                     {token ?
                         <form onSubmit={searchArtists}>
-                            <Button variant="success" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Artists</Button>
+                            <Button id="findArtists" variant="success" type={"submit"} style={{ color: 'white' }}>Find Your Most Played Artists</Button>
                             <div style={{
                                 width: "50%",
                                 margin: "auto"
@@ -99,8 +99,8 @@ export const Artists = () => {
                             </div><br /></div>
                     }
                     {!token ?
-                        <div><Button variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button></div>
-                        : <Button variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
+                        <div><Button id="Login" variant="success" href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`}>Click To Login on with Spotify</Button></div>
+                        : <Button id="Logout" variant="danger" onClick={logout} style={{ color: 'white' }}>Click to Logout</Button>
                     }
                 </div>
                 <div style={{

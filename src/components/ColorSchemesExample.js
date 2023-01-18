@@ -21,14 +21,14 @@ function ColorSchemesExample() {
         <Navbar bg="dark" variant="dark" >
           <Container>
             <Nav className="me-auto" style={{}}>
-              <Nav.Link as={Link} to="/Artists" style={{ color: "rgb(30, 215, 96)" }}>Artists</Nav.Link>
-              <Nav.Link as={Link} to="/Tracks" style={{ color: "rgb(30, 215, 96)" }}>Tracks</Nav.Link>
+              <Nav.Link as={Link} to="/Artists" id="toArtists" style={{ color: "rgb(30, 215, 96)" }}>Artists</Nav.Link>
+              <Nav.Link as={Link} to="/Tracks" id="toTracks" style={{ color: "rgb(30, 215, 96)" }}>Tracks</Nav.Link>
             </Nav>
           </Container>
         </Navbar>
         <div>
           <Routes>
-            <Route path="/Artists" element={<Artists />} />
+            <Route path="/Artists"  element={<Artists />} />
             <Route path="/Tracks" element={<Tracks />} />
           </Routes>
         </div>
@@ -52,8 +52,8 @@ function ColorSchemesExample() {
           }}>
 
           
-          <Button href="/Artists" >Explore the Artists Section</Button>
-          <button href="/Tracks" class="btn btn-warning">Explore the Tracks Section</button>
+          <Button href="/Artists" id="exploreArtists" >Explore the Artists Section</Button>
+          <button href="/Tracks" class="btn btn-warning" id="exploreTracks">Explore the Tracks Section</button>
 
         </div>
         <Authenticate />
