@@ -6,7 +6,10 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome(executable_path=r'C:\Users\liama\Desktop\webdrivers\chromedriver.exe')
 
-driver.get('http://localhost:3000/Tracks')      
+driver.get('http://localhost:3000/Tracks')   
+
+Email = "test@gmail.com"
+Password = "test123"   
 
 time.sleep(2) 
 
@@ -17,12 +20,12 @@ button = button = WebDriverWait(driver, 10).until(
 button.click()
 
 login = driver.find_element(By.ID, "login-username")
-login.send_keys("Liamaspell123@gmail.com")
+login.send_keys(Email)
 time.sleep(2)
 
 
 login = driver.find_element(By.ID, "login-password")
-login.send_keys("ilikelfc12")
+login.send_keys(Password)
 time.sleep(2)
 
 button = button = WebDriverWait(driver, 10).until(

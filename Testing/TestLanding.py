@@ -6,6 +6,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome(executable_path=r'C:\Users\liama\Desktop\webdrivers\chromedriver.exe')
 
+Email = "test@gmail.com"
+Password = "test123"
+
 # 1.Testing the Routes on the Navbar 
 driver.get('http://localhost:3000/')                                    
 time.sleep(2)                                                           
