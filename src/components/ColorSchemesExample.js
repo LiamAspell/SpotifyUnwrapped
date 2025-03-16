@@ -33,31 +33,6 @@ function ColorSchemesExample() {
           </Routes>
         </div>
       </Router>
-      <div className="Homepage-header">
-        <Navbar />
-        <h1>Spotify Unwrapped</h1>
-        {/* <img src={Logo} height="100px"/>  */}
-        <img src={SpotifyLogo} width="20%" alt="ProjectLogo" />
-        <div style={{   width: '50%',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        display: 'flex'}}>
-        <center><p>This is a Music Programming Project as part of the CS322 Music Programming Module. This project intends to extend the functionality of Spotify, achieved by using the Spotify API and Youtube v3 API.</p></center>
-        </div>
-        <div style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-          }}>
-
-          
-          <Button href="/Artists" id="exploreArtists" >Explore the Artists Section</Button>
-          <button href="/Tracks" class="btn btn-warning" id="exploreTracks">Explore the Tracks Section</button>
-
-        </div>
-        <Authenticate />
-      </div>
     </>
   );
 }
